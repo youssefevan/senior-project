@@ -3,7 +3,8 @@ extends KinematicBody2D
 const GROUND_ACCEL = 1800
 const AIR_ACCEL = 900
 const MAX_SPEED = 200
-const FRIC = .25
+const GROUND_FRIC = .25
+const AIR_FRIC = .025
 const GRAV = 1000
 const DOWN_GRAV = 2000
 const JUMP_FORCE = 415
@@ -11,6 +12,7 @@ const MIN_JUMP_HEIGHT = 175
 
 var grav = 1000
 var accel = 1500
+var fric = .25
 var motion = Vector2.ZERO
 var canPhantomJump = true
 var jumpWasPressed = false
@@ -22,17 +24,19 @@ func _physics_process(delta):
 		motion.x += x_input * accel * delta
 		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
 	else:
-		motion.x = lerp(motion.x, 0, FRIC)
+		motion.x = lerp(motion.x, 0, fric)
 	
 	motion.y += grav * delta
 	
 	if is_on_floor():
 		accel = GROUND_ACCEL
+		fric = GROUND_FRIC
 		canPhantomJump = true
 		if jumpWasPressed == true:
 			motion.y = -JUMP_FORCE
 	else:
 		accel = AIR_ACCEL
+		fric = AIR_FRIC
 	
 	if Input.is_action_just_pressed("ui_up"):
 		jumpWasPressed = true
