@@ -4,9 +4,11 @@ const ACCEL = 1500
 const MAX_SPEED = 200
 const FRIC = .25
 const GRAV = 1000
+const DOWN_GRAV = 2000
 const JUMP_FORCE = 415
 const MIN_JUMP_HEIGHT = 175
 
+var grav = 1000
 var motion = Vector2.ZERO
 var canPhantomJump = true
 var jumpWasPressed = false
@@ -20,7 +22,7 @@ func _physics_process(delta):
 	else:
 		motion.x = lerp(motion.x, 0, FRIC)
 	
-	motion.y += GRAV * delta
+	motion.y += grav * delta
 	
 	if is_on_floor():
 		canPhantomJump = true
@@ -33,6 +35,11 @@ func _physics_process(delta):
 		if canPhantomJump == true:
 			motion.y = -JUMP_FORCE
 	
+	if motion.y > 0:
+		grav = DOWN_GRAV
+	else:
+		grav = GRAV
+	
 	if !is_on_floor():
 		coyoteTime()
 	
@@ -40,6 +47,7 @@ func _physics_process(delta):
 		motion.y = -MIN_JUMP_HEIGHT
 	
 	motion = move_and_slide(motion, Vector2.UP)
+	print(motion)
 
 func coyoteTime():
 	yield(get_tree().create_timer(.07), "timeout")
