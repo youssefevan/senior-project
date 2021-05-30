@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-const ACCEL = 1500
+const GROUND_ACCEL = 1800
+const AIR_ACCEL = 900
 const MAX_SPEED = 200
 const FRIC = .25
 const GRAV = 1000
@@ -9,6 +10,7 @@ const JUMP_FORCE = 415
 const MIN_JUMP_HEIGHT = 175
 
 var grav = 1000
+var accel = 1500
 var motion = Vector2.ZERO
 var canPhantomJump = true
 var jumpWasPressed = false
@@ -17,7 +19,7 @@ func _physics_process(delta):
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
 	if x_input != 0:
-		motion.x += x_input * ACCEL * delta
+		motion.x += x_input * accel * delta
 		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
 	else:
 		motion.x = lerp(motion.x, 0, FRIC)
@@ -25,9 +27,12 @@ func _physics_process(delta):
 	motion.y += grav * delta
 	
 	if is_on_floor():
+		accel = GROUND_ACCEL
 		canPhantomJump = true
 		if jumpWasPressed == true:
 			motion.y = -JUMP_FORCE
+	else:
+		accel = AIR_ACCEL
 	
 	if Input.is_action_just_pressed("ui_up"):
 		jumpWasPressed = true
@@ -47,7 +52,7 @@ func _physics_process(delta):
 		motion.y = -MIN_JUMP_HEIGHT
 	
 	motion = move_and_slide(motion, Vector2.UP)
-	print(motion)
+	print(accel)
 
 func coyoteTime():
 	yield(get_tree().create_timer(.07), "timeout")
