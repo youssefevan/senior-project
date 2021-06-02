@@ -1,14 +1,17 @@
 extends KinematicBody2D
 
+signal grounded_update(is_grounded)
+
 const GROUND_ACCEL = 1800
 const AIR_ACCEL = 900
 const MAX_SPEED = 200
 const GROUND_FRIC = .25
 const AIR_FRIC = .025
 const GRAV = 1000
-const DOWN_GRAV = 2000
+const DOWN_GRAV = 2200
 const JUMP_FORCE = 415
 const MIN_JUMP_HEIGHT = 175
+const MAX_FALL_SPEED = 800
 
 var grav = 1000
 var accel = 1500
@@ -16,9 +19,12 @@ var fric = .25
 var motion = Vector2.ZERO
 var canPhantomJump = true
 var jumpWasPressed = false
+var x_input = 0
+var is_grounded
 
-func _physics_process(delta):
-	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+func _process(delta):
+	
+	x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
 	if x_input != 0:
 		motion.x += x_input * accel * delta
@@ -55,13 +61,23 @@ func _physics_process(delta):
 	if Input.is_action_just_released("ui_up") and motion.y < -MIN_JUMP_HEIGHT:
 		motion.y = -MIN_JUMP_HEIGHT
 	
+	var was_grounded = is_grounded
+	is_grounded = is_on_floor()
+	
+	if was_grounded == null || is_grounded != was_grounded:
+		emit_signal("grounded_update", is_grounded)
+	
+	if motion.y > MAX_FALL_SPEED:
+		motion.y = MAX_FALL_SPEED
+	
+	
 	motion = move_and_slide(motion, Vector2.UP)
-	print(accel)
+	print(motion)
 
 func coyoteTime():
-	yield(get_tree().create_timer(.07), "timeout")
+	yield(get_tree().create_timer(.055), "timeout")
 	canPhantomJump = false
 
 func rememberJumpTime():
-	yield(get_tree().create_timer(.07), "timeout")
+	yield(get_tree().create_timer(.075), "timeout")
 	jumpWasPressed = false
