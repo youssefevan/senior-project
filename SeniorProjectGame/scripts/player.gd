@@ -2,20 +2,20 @@ extends KinematicBody2D
 
 signal grounded_update(is_grounded)
 
-const GROUND_ACCEL = 1800
-const AIR_ACCEL = 900
-const MAX_SPEED = 200
-const GROUND_FRIC = .25
-const AIR_FRIC = .025
-const GRAV = 1000
-const DOWN_GRAV = 2200
-const JUMP_FORCE = 415
-const MIN_JUMP_HEIGHT = 175
-const MAX_FALL_SPEED = 800
+const GROUND_ACCEL = 850
+const AIR_ACCEL = 425
+const MAX_SPEED = 75
+const GROUND_FRIC = .1
+const AIR_FRIC = .01
+const GRAV = 600
+const DOWN_GRAV = 1400
+const JUMP_FORCE = 200
+const MIN_JUMP_HEIGHT = 90
+const MAX_FALL_SPEED = 300
 
-var grav = 1000
-var accel = 1500
-var fric = .25
+var grav = 0
+var accel = 0
+var fric = 0
 var motion = Vector2.ZERO
 var canPhantomJump = true
 var jumpWasPressed = false
@@ -72,7 +72,6 @@ func _process(delta):
 	
 	
 	motion = move_and_slide(motion, Vector2.UP)
-	print(motion)
 
 func coyoteTime():
 	yield(get_tree().create_timer(.055), "timeout")
@@ -81,3 +80,14 @@ func coyoteTime():
 func rememberJumpTime():
 	yield(get_tree().create_timer(.075), "timeout")
 	jumpWasPressed = false
+
+func _on_cameraroomdetection_area_entered(area):
+	var size = area.global_scale * 2
+	
+	var cam = $camera
+	cam.limit_top = area.global_position.y - size.y/2
+	cam.limit_left = area.global_position.x - size.x/2
+	cam.limit_bottom = cam.limit_top + size.y
+	cam.limit_right = cam.limit_left + size.x
+	
+	print(size)

@@ -1,12 +1,12 @@
 extends Camera2D
 
-const LOOK_AHEAD = 0.15
-const SHIFT_TRANS = Tween.TRANS_SINE
+const LOOK_AHEAD = 0.07
+const SHIFT_TRANS = Tween.TRANS_LINEAR
 const SHIFT_EASE = Tween.EASE_OUT
-const SHIFT_DURTION = 1
+const SHIFT_DURTION = .5
 
 onready var prev_cam_pos = get_camera_position()
-onready var tween = $"shift-tween"
+onready var shift_tween = $"shift-tween"
 
 var facing = 0
 
@@ -20,9 +20,8 @@ func check_facing():
 		facing = new_facing
 		var target_offset = get_viewport_rect().size.x * LOOK_AHEAD * facing
 		
-		tween.interpolate_property(self, "position:x", position.x, target_offset, SHIFT_DURTION, SHIFT_TRANS, SHIFT_EASE)
-		tween.start()
-
+		shift_tween.interpolate_property(self, "position:x", position.x, target_offset, SHIFT_DURTION, SHIFT_TRANS, SHIFT_EASE)
+		shift_tween.start()
 
 func _on_player_grounded_update(is_grounded):
 	drag_margin_v_enabled = !is_grounded
