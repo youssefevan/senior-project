@@ -9,6 +9,10 @@ onready var prev_cam_pos = get_camera_position()
 onready var shift_tween = $"shift-tween"
 
 var facing = 0
+var large_y_limits = false
+
+func _on_player_large_y_limits():
+	large_y_limits = true
 
 func _process(delta):
 	check_facing()

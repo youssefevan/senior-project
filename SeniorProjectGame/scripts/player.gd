@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal grounded_update(is_grounded)
+signal large_y_limits()
 
 const GROUND_ACCEL = 850
 const AIR_ACCEL = 425
@@ -11,7 +12,7 @@ const GRAV = 600
 const DOWN_GRAV = 1400
 const JUMP_FORCE = 200
 const MIN_JUMP_HEIGHT = 90
-const MAX_FALL_SPEED = 300
+const MAX_FALL_SPEED = 250
 
 var grav = 0
 var accel = 0
@@ -21,6 +22,7 @@ var canPhantomJump = true
 var jumpWasPressed = false
 var x_input = 0
 var is_grounded
+var size
 
 func _process(delta):
 	
@@ -33,6 +35,7 @@ func _process(delta):
 		motion.x = lerp(motion.x, 0, fric)
 	
 	motion.y += grav * delta
+	animate()
 	
 	if is_on_floor():
 		accel = GROUND_ACCEL
@@ -70,6 +73,8 @@ func _process(delta):
 	if motion.y > MAX_FALL_SPEED:
 		motion.y = MAX_FALL_SPEED
 	
+	if size.y > 63:
+		emit_signal("large_y_limits")
 	
 	motion = move_and_slide(motion, Vector2.UP)
 
@@ -82,12 +87,25 @@ func rememberJumpTime():
 	jumpWasPressed = false
 
 func _on_cameraroomdetection_area_entered(area):
-	var size = area.global_scale * 2
+	size = area.global_scale * 2
 	
 	var cam = $camera
 	cam.limit_top = area.global_position.y - size.y/2
 	cam.limit_left = area.global_position.x - size.x/2
 	cam.limit_bottom = cam.limit_top + size.y
 	cam.limit_right = cam.limit_left + size.x
-	
-	print(size)
+
+func animate():
+	#print(motion.x)
+	if is_grounded == true && motion.x >= 20:
+		$animator.play("walk")
+		$sprite.flip_h = false
+	if is_grounded == true && motion.x <= -20:
+		$animator.play("walk")
+		$sprite.flip_h = true
+	if motion.y > 0 && is_grounded != true:
+		$animator.play("fall")
+	if motion.y < 0:
+		$animator.play("jump")
+	if is_grounded == true && motion.x < 20 && motion.x > -20:
+		$animator.play("idle")
