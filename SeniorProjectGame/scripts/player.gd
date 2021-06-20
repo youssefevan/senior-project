@@ -26,7 +26,7 @@ var size
 
 func _process(delta):
 	
-	x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	
 	if x_input != 0:
 		motion.x += x_input * accel * delta
@@ -47,7 +47,7 @@ func _process(delta):
 		accel = AIR_ACCEL
 		fric = AIR_FRIC
 	
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("jump"):
 		jumpWasPressed = true
 		rememberJumpTime()
 		if canPhantomJump == true:
@@ -97,15 +97,33 @@ func _on_cameraroomdetection_area_entered(area):
 
 func animate():
 	#print(motion.x)
-	if is_grounded == true && motion.x >= 20:
-		$animator.play("walk")
-		$sprite.flip_h = false
-	if is_grounded == true && motion.x <= -20:
-		$animator.play("walk")
+	if get_local_mouse_position().x < 0:
 		$sprite.flip_h = true
+	elif get_global_mouse_position().x >= 0:
+		$sprite.flip_h = false
+	
+	
+	if is_grounded == true:
+		#if moving right on the ground
+		if motion.x >= 20:
+			#and is facing forwards
+			if $sprite.flip_h == false:
+				$animator.play("walk")
+			#and is facing backwards
+			elif $sprite.flip_h == true:
+				$animator.play("walk_backwards")
+		#if moving left on the ground
+		if motion.x <= -20:
+			#and is facing forwards
+			if $sprite.flip_h == false:
+				$animator.play("walk_backwards")
+			#and is facing backwards
+			elif $sprite.flip_h == true:
+				$animator.play("walk")
+		if motion.x < 20 && motion.x > -20:
+			$animator.play("idle")
+
 	if motion.y > 0 && is_grounded != true:
 		$animator.play("fall")
 	if motion.y < 0:
 		$animator.play("jump")
-	if is_grounded == true && motion.x < 20 && motion.x > -20:
-		$animator.play("idle")
