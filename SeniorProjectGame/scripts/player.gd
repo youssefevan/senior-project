@@ -102,7 +102,6 @@ func animate():
 	elif get_global_mouse_position().x >= 0:
 		$sprite.flip_h = false
 	
-	
 	if is_grounded == true:
 		#if moving right on the ground
 		if motion.x >= 20:
@@ -122,8 +121,9 @@ func animate():
 				$animator.play("walk")
 		if motion.x < 20 && motion.x > -20:
 			$animator.play("idle")
-
+	
 	if motion.y > 0 && is_grounded != true:
 		$animator.play("fall")
-	if motion.y < 0:
+	if motion.y < 0 && is_grounded != true:
 		$animator.play("jump")
+	print(is_grounded)
