@@ -126,4 +126,4 @@ func animate():
 		$animator.play("fall")
 	if motion.y < 0 && is_grounded != true:
 		$animator.play("jump")
-	print(is_grounded)
+	#print(is_grounded)
