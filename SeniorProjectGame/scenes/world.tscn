@@ -18,6 +18,7 @@ position = Vector2( -256, -80 )
 collision_mask = 31
 
 [node name="rooms" type="Node2D" parent="."]
+visible = false
 
 [node name="camera-room" parent="rooms" instance=ExtResource( 3 )]
 position = Vector2( -160, -64 )

@@ -53,7 +53,9 @@ points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 } ]
 1/z_index = 0
 
-[node name="ground-tiles" type="TileMap"]
+[node name="ground-tiles" type="TileMap" groups=[
+"tiles",
+]]
 tile_set = SubResource( 3 )
 cell_size = Vector2( 8, 8 )
 format = 1

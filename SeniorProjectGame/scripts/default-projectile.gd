@@ -1,9 +1,19 @@
 extends Area2D
 
-var speed;
+var speed
+var firerate
+var vel
 
-func _process(delta):
-	speed = 150
-	var vel = Vector2(speed * delta, 0).rotated(rotation)
+func movement(delta):
+	vel = Vector2(speed * delta, 0).rotated(rotation)
 	global_position += vel
-	$animator.play("flash")
+
+func _on_defaultprojectile_body_entered(body):
+	if body.is_in_group("tiles"):
+		queue_free()
+
+func sprite_flipping():
+	if vel.x >= 0:
+		$sprite.flip_v = false
+	elif vel.x < 0:
+		$sprite.flip_v = true
