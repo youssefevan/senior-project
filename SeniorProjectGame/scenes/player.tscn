@@ -56,8 +56,9 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-length = 0.8
+length = 0.64
 loop = true
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
@@ -65,7 +66,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"times": PoolRealArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
@@ -73,7 +74,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "walk_backwards"
-length = 0.8
+length = 0.64
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
@@ -81,7 +83,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"times": PoolRealArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 15, 14, 13, 12, 11, 10, 9, 8 ]
@@ -115,14 +117,15 @@ shape = SubResource( 6 )
 
 [node name="camera" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.35, 0.35 )
+zoom = Vector2( 0.4, 0.4 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
 smoothing_speed = 9.0
 drag_margin_left = 0.12
-drag_margin_top = 0.75
+drag_margin_top = 0.6
 drag_margin_right = 0.12
+drag_margin_bottom = 0.18
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 3 )
@@ -137,6 +140,7 @@ position = Vector2( -2.38419e-07, -1 )
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 2
+frame = 15
 
 [node name="blaster-position" type="Position2D" parent="."]
 script = ExtResource( 5 )

@@ -5,7 +5,7 @@ signal large_y_limits()
 
 const GROUND_ACCEL = 850
 const AIR_ACCEL = 425
-const MAX_SPEED = 75
+const MAX_SPEED = 85
 const GROUND_FRIC = .1
 const AIR_FRIC = .01
 const GRAV = 600
@@ -73,13 +73,13 @@ func _process(delta):
 	if motion.y > MAX_FALL_SPEED:
 		motion.y = MAX_FALL_SPEED
 	
-	if size.y > 63:
+	if size.y > 72:
 		emit_signal("large_y_limits")
 	
 	motion = move_and_slide(motion, Vector2.UP)
 
 func coyoteTime():
-	yield(get_tree().create_timer(.055), "timeout")
+	yield(get_tree().create_timer(.07), "timeout")
 	canPhantomJump = false
 
 func rememberJumpTime():

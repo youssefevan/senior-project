@@ -1,11 +1,15 @@
 extends Node2D
 
-var fire_rate;
+var fire_rate = .2
+var can_shoot = true
 export var ammo_type = preload("res://scenes/ammo-0.tscn");
 
 func _process(delta):
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot") and can_shoot:
 		shoot()
+		can_shoot = false
+		yield(get_tree().create_timer(fire_rate), "timeout")
+		can_shoot = true
 
 func shoot():
 	var projectile = ammo_type.instance()
