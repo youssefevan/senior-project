@@ -22,11 +22,18 @@ var canPhantomJump = true
 var jumpWasPressed = false
 var x_input = 0
 var is_grounded
-var size
+var room_size
+
+func get_x_input():
+	x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+
+func apply_gravity(delta):
+	motion.y += grav * delta
 
 func _process(delta):
 	
-	x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	get_x_input()
+	apply_gravity(delta)
 	
 	if x_input != 0:
 		motion.x += x_input * accel * delta
@@ -34,7 +41,6 @@ func _process(delta):
 	else:
 		motion.x = lerp(motion.x, 0, fric)
 	
-	motion.y += grav * delta
 	animate()
 	
 	if is_on_floor():
@@ -73,7 +79,7 @@ func _process(delta):
 	if motion.y > MAX_FALL_SPEED:
 		motion.y = MAX_FALL_SPEED
 	
-	if size.y > 72:
+	if room_size.y > 72:
 		emit_signal("large_y_limits")
 	
 	motion = move_and_slide(motion, Vector2.UP)
@@ -87,13 +93,13 @@ func rememberJumpTime():
 	jumpWasPressed = false
 
 func _on_cameraroomdetection_area_entered(area):
-	size = area.global_scale * 2
+	room_size = area.global_scale * 2
 	
 	var cam = $camera
-	cam.limit_top = area.global_position.y - size.y/2
-	cam.limit_left = area.global_position.x - size.x/2
-	cam.limit_bottom = cam.limit_top + size.y
-	cam.limit_right = cam.limit_left + size.x
+	cam.limit_top = area.global_position.y - room_size.y/2
+	cam.limit_left = area.global_position.x - room_size.x/2
+	cam.limit_bottom = cam.limit_top + room_size.y
+	cam.limit_right = cam.limit_left + room_size.x
 
 func animate():
 	#print(motion.x)
