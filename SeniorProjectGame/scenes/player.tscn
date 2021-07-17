@@ -4,7 +4,6 @@
 [ext_resource path="res://scripts/player.gd" type="Script" id=2]
 [ext_resource path="res://scripts/camera.gd" type="Script" id=3]
 [ext_resource path="res://scenes/default-blaster.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scripts/blaster-position.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fall"
@@ -95,10 +94,19 @@ extents = Vector2( 0, 0 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 3, 6 )
 
+[sub_resource type="GDScript" id=8]
+script/source = "extends Position2D
+
+
+func _process(delta):
+	look_at(get_global_mouse_position())
+"
+
 [node name="player" type="KinematicBody2D" groups=[
 "player",
 ]]
 position = Vector2( 156, 92 )
+collision_mask = 63
 collision/safe_margin = 0.05
 script = ExtResource( 2 )
 
@@ -118,6 +126,7 @@ shape = SubResource( 6 )
 [node name="camera" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.4, 0.4 )
+limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
@@ -143,7 +152,7 @@ position = Vector2( 0, 1 )
 shape = SubResource( 7 )
 
 [node name="blaster-position" type="Position2D" parent="."]
-script = ExtResource( 5 )
+script = SubResource( 8 )
 
 [node name="default-blaster" parent="blaster-position" instance=ExtResource( 4 )]
 position = Vector2( 5, 0 )

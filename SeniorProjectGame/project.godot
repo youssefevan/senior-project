@@ -8,16 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Node",
-"class": "StateMachine",
-"language": "GDScript",
-"path": "res://scripts/state-machine.gd"
-} ]
-_global_script_class_icons={
-"StateMachine": ""
-}
-
 [application]
 
 config/name="SeniorProjectGame"
@@ -30,6 +20,10 @@ window/size/width=640
 window/size/height=360
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[global]
+
+collision=false
 
 [importer_defaults]
 
@@ -121,6 +115,7 @@ shoot={
 2d_physics/layer_3="projectile"
 2d_physics/layer_4="environment"
 2d_physics/layer_5="room"
+2d_physics/layer_6="detection-zone"
 
 [physics]
 

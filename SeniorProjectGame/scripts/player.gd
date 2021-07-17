@@ -22,7 +22,7 @@ var canPhantomJump = true
 var jumpWasPressed = false
 var x_input = 0
 var is_grounded
-var room_size
+var room_size = Vector2.ZERO
 
 func get_x_input():
 	x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -93,13 +93,14 @@ func rememberJumpTime():
 	jumpWasPressed = false
 
 func _on_cameraroomdetection_area_entered(area):
-	room_size = area.global_scale * 2
-	
-	var cam = $camera
-	cam.limit_top = area.global_position.y - room_size.y/2
-	cam.limit_left = area.global_position.x - room_size.x/2
-	cam.limit_bottom = cam.limit_top + room_size.y
-	cam.limit_right = cam.limit_left + room_size.x
+	if area.get_collision_layer() == 16:
+		room_size = area.global_scale * 2
+		
+		var cam = $camera
+		cam.limit_top = area.global_position.y - room_size.y/2
+		cam.limit_left = area.global_position.x - room_size.x/2
+		cam.limit_bottom = cam.limit_top + room_size.y
+		cam.limit_right = cam.limit_left + room_size.x
 
 func animate():
 	#print(motion.x)
