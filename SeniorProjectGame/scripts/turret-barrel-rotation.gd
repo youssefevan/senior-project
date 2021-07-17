@@ -11,7 +11,7 @@ func _process(delta):
 func player_detected():
 	if player != null:
 		look_at(player.global_position)
-		print(player.global_position)
+		$"barrel-rotation2/barrel-position/animator".play("shoot")
 		if can_shoot == true:
 			shoot()
 			can_shoot = false
