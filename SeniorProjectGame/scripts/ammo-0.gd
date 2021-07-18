@@ -3,6 +3,7 @@ extends "res://scripts/default-projectile.gd"
 
 func _ready():
 	speed = 150
+	damage = 2
 
 func _process(delta):
 	movement(delta)

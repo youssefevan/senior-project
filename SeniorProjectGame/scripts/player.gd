@@ -23,6 +23,7 @@ var jumpWasPressed = false
 var x_input = 0
 var is_grounded
 var room_size = Vector2.ZERO
+var health = 10
 
 func get_x_input():
 	x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -34,14 +35,14 @@ func _process(delta):
 	
 	get_x_input()
 	apply_gravity(delta)
+	health_check()
+	animate()
 	
 	if x_input != 0:
 		motion.x += x_input * accel * delta
 		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
 	else:
 		motion.x = lerp(motion.x, 0, fric)
-	
-	animate()
 	
 	if is_on_floor():
 		accel = GROUND_ACCEL
@@ -92,6 +93,13 @@ func rememberJumpTime():
 	yield(get_tree().create_timer(.075), "timeout")
 	jumpWasPressed = false
 
+func health_check():
+	if health <= 0:
+		die()
+
+func die():
+	print(health, "dead")
+
 func _on_cameraroomdetection_area_entered(area):
 	if area.get_collision_layer() == 16:
 		room_size = area.global_scale * 2
@@ -134,3 +142,9 @@ func animate():
 	if motion.y < 0 && is_grounded != true:
 		$animator.play("jump")
 	#print(is_grounded)
+
+
+func _on_projectiledetection_area_entered(area):
+	if area.is_in_group("enemy-projectile"):
+		health -= area.damage
+		print(health)
