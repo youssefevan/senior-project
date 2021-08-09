@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/one-way.png-7c2f341153bcad5032dc0cb0c9ca4e60.stex"
+path="res://.import/turret-ammo-0.png-0a7f8c80512a9b97db2ac352810a7bcb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/one-way.png"
-dest_files=[ "res://.import/one-way.png-7c2f341153bcad5032dc0cb0c9ca4e60.stex" ]
+source_file="res://sprites/ammo-sprites/turret-ammo-0.png"
+dest_files=[ "res://.import/turret-ammo-0.png-0a7f8c80512a9b97db2ac352810a7bcb.stex" ]
 
 [params]
 

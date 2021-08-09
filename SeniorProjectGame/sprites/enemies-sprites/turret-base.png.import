@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ammo-0.png-a00a82354e70d0d8cb0ea2779ae490f3.stex"
+path="res://.import/turret-base.png-a9bf401ef46767890a4c7c50425c5463.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ammo-0.png"
-dest_files=[ "res://.import/ammo-0.png-a00a82354e70d0d8cb0ea2779ae490f3.stex" ]
+source_file="res://sprites/enemies-sprites/turret-base.png"
+dest_files=[ "res://.import/turret-base.png-a9bf401ef46767890a4c7c50425c5463.stex" ]
 
 [params]
 

@@ -23,7 +23,7 @@ tracks/0/keys = {
 load_path = "res://.import/ammo0.png-78087499a1f167bee4dcd7df2e507aa8.stex"
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 1.99999
+radius = 1.75
 height = 2.00001
 
 [node name="ammo-0" instance=ExtResource( 1 )]

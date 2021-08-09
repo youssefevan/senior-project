@@ -104,7 +104,7 @@ func _process(delta):
 
 [sub_resource type="CapsuleShape2D" id=9]
 radius = 3.0
-height = 6.0
+height = 7.0
 
 [node name="player" type="KinematicBody2D" groups=[
 "player",
@@ -161,13 +161,13 @@ script = SubResource( 8 )
 [node name="default-blaster" parent="blaster-position" instance=ExtResource( 4 )]
 position = Vector2( 5, 0 )
 
-[node name="projectile-detection" type="Area2D" parent="."]
-collision_mask = 4
+[node name="damage-detection" type="Area2D" parent="."]
+collision_mask = 68
 
-[node name="p-collider" type="CollisionShape2D" parent="projectile-detection"]
+[node name="d-collider" type="CollisionShape2D" parent="damage-detection"]
 shape = SubResource( 9 )
 
 [connection signal="grounded_update" from="." to="camera" method="_on_player_grounded_update"]
 [connection signal="large_y_limits" from="." to="camera" method="_on_player_large_y_limits"]
 [connection signal="area_entered" from="camera-room-detection" to="." method="_on_cameraroomdetection_area_entered"]
-[connection signal="area_entered" from="projectile-detection" to="." method="_on_projectiledetection_area_entered"]
+[connection signal="area_entered" from="damage-detection" to="." method="_on_damagedetection_area_entered"]

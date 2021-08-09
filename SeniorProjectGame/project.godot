@@ -24,6 +24,7 @@ window/stretch/aspect="keep"
 [global]
 
 collision=false
+layer=false
 
 [importer_defaults]
 
@@ -116,6 +117,7 @@ shoot={
 2d_physics/layer_4="environment"
 2d_physics/layer_5="room"
 2d_physics/layer_6="detection-zone"
+2d_physics/layer_7="hazard"
 
 [physics]
 

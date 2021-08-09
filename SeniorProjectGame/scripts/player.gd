@@ -94,11 +94,12 @@ func rememberJumpTime():
 	jumpWasPressed = false
 
 func health_check():
+	print(health)
 	if health <= 0:
 		die()
 
 func die():
-	print(health, "dead")
+	pass
 
 func _on_cameraroomdetection_area_entered(area):
 	if area.get_collision_layer() == 16:
@@ -144,7 +145,8 @@ func animate():
 	#print(is_grounded)
 
 
-func _on_projectiledetection_area_entered(area):
+func _on_damagedetection_area_entered(area):
 	if area.is_in_group("enemy-projectile"):
 		health -= area.damage
-		print(health)
+	if area.get_collision_layer() == 64:
+		health -= area.damage
