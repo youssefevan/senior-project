@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 signal grounded_update(is_grounded)
 signal large_y_limits()
+signal x_flipped()
+signal not_x_flipped()
 
 const GROUND_ACCEL = 850
 const AIR_ACCEL = 425
@@ -113,30 +115,24 @@ func _on_cameraroomdetection_area_entered(area):
 		cam.limit_right = cam.limit_left + room_size.x
 
 func animate():
-	#print(motion.x)
-	if get_local_mouse_position().x < 0:
-		$sprite.flip_h = true
-	elif get_global_mouse_position().x >= 0:
-		$sprite.flip_h = false
+	print(motion.x)
+	#print($sprite.flip_h)
+	#if get_local_mouse_position().x < 0:
+	#	$sprite.flip_h = true
+	#elif get_global_mouse_position().x >= 0:
+	#	$sprite.flip_h = false
 	
 	if is_grounded == true:
-		#if moving right on the ground
+		
 		if motion.x >= 20:
-			#and is facing forwards
-			if $sprite.flip_h == false:
-				$animator.play("walk")
-			#and is facing backwards
-			elif $sprite.flip_h == true:
-				$animator.play("walk_backwards")
-		#if moving left on the ground
+			$animator.play("walk")
+			$sprite.flip_h = false
+		
 		if motion.x <= -20:
-			#and is facing forwards
-			if $sprite.flip_h == false:
-				$animator.play("walk_backwards")
-			#and is facing backwards
-			elif $sprite.flip_h == true:
-				$animator.play("walk")
-		if motion.x < 20 && motion.x > -20:
+			$animator.play("walk")
+			$sprite.flip_h = true
+	
+	if is_grounded == true && motion.x < 20 && motion.x > -20:
 			$animator.play("idle")
 	
 	if motion.y > 0 && is_grounded != true:
@@ -144,6 +140,11 @@ func animate():
 	if motion.y < 0 && is_grounded != true:
 		$animator.play("jump")
 	#print(is_grounded)
+	
+	if $sprite.flip_h == true:
+		emit_signal("x_flipped")
+	if $sprite.flip_h == false:
+		emit_signal("not_x_flipped")
 
 func _on_damagedetection_area_entered(area):
 	if area.is_in_group("enemy-projectile"):
