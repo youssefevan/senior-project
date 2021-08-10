@@ -24,6 +24,7 @@ var x_input = 0
 var is_grounded
 var room_size = Vector2.ZERO
 var health = 10
+var hurt = false
 
 func get_x_input():
 	x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -144,9 +145,13 @@ func animate():
 		$animator.play("jump")
 	#print(is_grounded)
 
-
 func _on_damagedetection_area_entered(area):
 	if area.is_in_group("enemy-projectile"):
+		take_damage()
 		health -= area.damage
 	if area.get_collision_layer() == 64:
+		take_damage()
 		health -= area.damage
+
+func take_damage():
+	pass
