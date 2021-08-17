@@ -51,4 +51,10 @@ position = Vector2( -373, -59 )
 position = Vector2( -48, -116 )
 
 [node name="spikes" parent="." instance=ExtResource( 5 )]
-position = Vector2( -284, -24 )
+position = Vector2( -56, -16 )
+
+[node name="spikes2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -48, -16 )
+
+[node name="spikes3" parent="." instance=ExtResource( 5 )]
+position = Vector2( -40, -16 )

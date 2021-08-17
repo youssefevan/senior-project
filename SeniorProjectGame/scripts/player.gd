@@ -115,7 +115,7 @@ func _on_cameraroomdetection_area_entered(area):
 		cam.limit_right = cam.limit_left + room_size.x
 
 func animate():
-	print(motion.x)
+	#print(motion.x)
 	#print($sprite.flip_h)
 	#if get_local_mouse_position().x < 0:
 	#	$sprite.flip_h = true
