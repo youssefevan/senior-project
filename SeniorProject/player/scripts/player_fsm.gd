@@ -12,7 +12,7 @@ func _input(event):
 	if event.is_action_pressed("ui_up"):
 		parent.jumpWasPressed = true
 		parent.rememberJumpTime()
-		if parent.canPhantomJump == true:
+		if parent.canCoyoteJump == true:
 			parent.velocity.y = -parent.JUMP_FORCE
 	
 	# minimum jump height (variable jump heigth)
@@ -25,18 +25,20 @@ func state_logic(delta):
 	parent.handle_move_input(delta)
 	parent.apply_gravity(delta)
 	parent.apply_movement()
-	parent.update_grounded()
+	
+	#print(state)
 	
 	# If grounded
 	if [states.idle, states.run].has(state):
+		parent.emit_signal("grounded")
 		# change friction and acceleration
 		parent.accel = parent.GROUND_ACCEL
 		parent.fric = parent.GROUND_FRIC
 		
-		# ready phantom jump
-		parent.canPhantomJump = true
+		# ready coyote jump
+		parent.canCoyoteJump = true
 		
-		# if jump was pressed
+		# if jump was pressed (phantom jump)
 		if parent.jumpWasPressed == true:
 			# allow player to jump
 			parent.velocity.y = -parent.JUMP_FORCE
@@ -50,6 +52,7 @@ func state_logic(delta):
 	
 	# If not grounded
 	if [states.jump, states.fall].has(state):
+		parent.emit_signal("not_grounded")
 		# change fric and accel
 		parent.accel = parent.AIR_ACCEL
 		parent.fric = parent.AIR_FRIC

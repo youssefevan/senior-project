@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://sprites/player/ss_player.png" type="Texture" id=1]
 [ext_resource path="res://player/scripts/player_fsm.gd" type="Script" id=2]
@@ -71,6 +71,9 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 3, 6 )
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 0, 0 )
+
 [node name="Player" type="KinematicBody2D"]
 collision/safe_margin = 0.04
 script = ExtResource( 3 )
@@ -92,3 +95,14 @@ vframes = 2
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource( 5 )
+
+[node name="CameraRoomDetector" type="Area2D" parent="."]
+collision_mask = 32
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Collider" type="CollisionShape2D" parent="CameraRoomDetector"]
+shape = SubResource( 6 )
+
+[connection signal="area_entered" from="CameraRoomDetector" to="." method="_on_CameraRoomDetector_area_entered"]

@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
-signal grounded_update(is_grounded)
+signal grounded(is_grounded)
+signal not_grounded()
+signal camera_room(cr_size, cr_pos)
 
 onready var animator = $Animator
 onready var sprite = $Sprite
@@ -23,9 +25,14 @@ var x_input = Vector2.ZERO
 var accel = 0
 var fric = 0
 
-var is_grounded
-var jumpWasPressed = false
-var canPhantomJump = false
+#var is_grounded
+var facing = 0
+
+var jumpWasPressed = false #phantom jump
+var canCoyoteJump = false
+
+var cr_size = Vector2()
+var cr_pos = Vector2()
 
 func apply_gravity(delta):
 	velocity.y += grav * delta
@@ -43,17 +50,23 @@ func handle_move_input(delta):
 	else:
 		velocity.x = lerp(velocity.x, 0, fric)
 
-func update_grounded():
-	var was_grounded = is_grounded
-	is_grounded = is_on_floor()
-	
-	if was_grounded == null || is_grounded != was_grounded:
-		emit_signal("grounded_update", is_grounded)
+#func update_grounded():
+#	var was_grounded = is_grounded
+#	is_grounded = is_on_floor()
+#	
+#	if was_grounded == null || is_grounded != was_grounded:
+#		emit_signal("grounded_update", is_grounded)
 
 func rememberJumpTime():
 	yield(get_tree().create_timer(.075), "timeout")
 	jumpWasPressed = false
 
 func coyoteTime():
-	yield(get_tree().create_timer(.07), "timeout")
-	canPhantomJump = false
+	yield(get_tree().create_timer(.075), "timeout")
+	canCoyoteJump = false
+
+func _on_CameraRoomDetector_area_entered(area):
+	if area.get_collision_layer() == 32:
+		cr_size = area.global_scale
+		cr_pos = area.global_position
+		emit_signal("camera_room", cr_size, cr_pos)

@@ -1,48 +1,52 @@
 extends Camera2D
 
-#const LOOK_AHEAD = 0.07
-#const SHIFT_TRANS = Tween.TRANS_SINE
-#const SHIFT_EASE = Tween.EASE_OUT
-#const SHIFT_DURTION = .5
-
-#onready var prev_cam_pos = get_camera_position()
-#onready var shift_tween = $"ShiftTween"
-
 export (NodePath) var target_nodepath = null
 var target_node
-var smooth_speed = .5
+var smooth_speed = 0.5
+var drag_speed = 0.1
+var drag_top = 0.6
+var drag_bottom = 0.18
 
-#var facing = 0
+var player_pos = Vector2.ZERO
+
+var top = 0
+var bottom = 0
+var left = 0
+var right = 0
+
+var prev_limit_top = 0
+var prev_limit_bottom = 0
+var prev_limit_left = 0
+var prev_limit_right = 0
 
 func _ready():
 	target_node = get_node(target_nodepath)
+	pass
 
-func _physics_process(delta):
-	
-	#print(target_node.global_position.x - $LookLeft.global_position.x, target_node.global_position.x - $LookRight.global_position.x)
-	
-	
-		
+func _process(delta):
 	self.global_position = lerp(self.global_position, target_node.global_position, smooth_speed)
-	
-	
-	#self.global_position = target_node.global_position
-	
-	#check_facing()
-	#print(facing)
-	#prev_cam_pos = get_camera_position()
 
-#func check_facing():
+func _on_Player_camera_room(cr_size, cr_pos):
+	top = cr_pos.y - cr_size.y
+	left = cr_pos.x - cr_size.x
+	bottom = (top) + (cr_size.y * 2)
+	right = (left) + (cr_size.x * 2)
 	
-#	var new_facing = sign(get_camera_position().x - prev_cam_pos.x)
-#	if new_facing != 0 && facing != new_facing:
-#		facing = new_facing
-#		
-#		var target_offset = get_viewport_rect().size.x * LOOK_AHEAD * facing
-#		
-#		shift_tween.interpolate_property(self, "position:x", position.x, target_offset, SHIFT_DURTION, SHIFT_TRANS, SHIFT_EASE)
-#		shift_tween.start()
+	self.limit_top = top
+	self.limit_left = left
+	self.limit_bottom = bottom
+	self.limit_right = right
 
+func _on_Player_grounded():
+	drag_margin_top = lerp(drag_margin_top, 0, drag_speed)
+	#drag_margin_bottom = lerp(drag_margin_bottom, 0, drag_speed)
+	
+	
+	#drag_margin_v_enabled = false
 
-#func _on_Player_grounded_update(is_grounded):
-#	drag_margin_v_enabled = !is_grounded
+func _on_Player_not_grounded():
+	drag_margin_top = lerp(drag_margin_top, drag_top, drag_speed)
+	#drag_margin_bottom = lerp(drag_margin_bottom, drag_bottom, drag_speed)
+	
+	
+	#drag_margin_v_enabled = true
