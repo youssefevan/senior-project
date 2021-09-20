@@ -3,6 +3,8 @@ extends KinematicBody2D
 signal grounded(is_grounded)
 signal not_grounded()
 signal camera_room(cr_size, cr_pos)
+signal flipped()
+signal not_flipped()
 
 onready var animator = $Animator
 onready var sprite = $Sprite
@@ -26,7 +28,7 @@ var accel = 0
 var fric = 0
 
 #var is_grounded
-var facing = 0
+#var facing = 0
 
 var jumpWasPressed = false #phantom jump
 var canCoyoteJump = false

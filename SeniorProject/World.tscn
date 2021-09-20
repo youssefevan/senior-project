@@ -7,6 +7,9 @@
 [ext_resource path="res://CameraRoom.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Tiles1" parent="." instance=ExtResource( 2 )]
 

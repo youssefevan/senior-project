@@ -9,7 +9,7 @@ func _ready():
 
 func _input(event):
 	
-	if event.is_action_pressed("ui_up"):
+	if event.is_action_pressed("jump"):
 		parent.jumpWasPressed = true
 		parent.rememberJumpTime()
 		if parent.canCoyoteJump == true:
@@ -17,7 +17,7 @@ func _input(event):
 	
 	# minimum jump height (variable jump heigth)
 	if state == states.jump:
-		if Input.is_action_just_released("ui_up") && (parent.velocity.y < -parent.MIN_JUMP_HEIGHT):
+		if Input.is_action_just_released("jump") && (parent.velocity.y < -parent.MIN_JUMP_HEIGHT):
 			parent.velocity.y = -parent.MIN_JUMP_HEIGHT
 	
 
@@ -49,6 +49,12 @@ func state_logic(delta):
 			parent.sprite.flip_h = false
 		if parent.velocity.x <= -20:
 			parent.sprite.flip_h = true
+	
+	# signal for blaster position
+	if parent.sprite.flip_h == true:
+		parent.emit_signal("flipped")
+	if parent.sprite.flip_h == false:
+		parent.emit_signal("not_flipped")
 	
 	# If not grounded
 	if [states.jump, states.fall].has(state):
