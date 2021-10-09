@@ -44,11 +44,10 @@ func state_logic(delta):
 			parent.velocity.y = -parent.JUMP_FORCE
 	
 	# sprite flipping
-	if state == states.run:
-		if parent.velocity.x >= 20:
-			parent.sprite.flip_h = false
-		if parent.velocity.x <= -20:
-			parent.sprite.flip_h = true
+	if parent.velocity.x > 0:
+		parent.sprite.flip_h = false
+	if parent.velocity.x < 0:
+		parent.sprite.flip_h = true
 	
 	# signal for blaster position
 	if parent.sprite.flip_h == true:

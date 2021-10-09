@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://environment/camera_room/camera_room.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1, 1 )
@@ -6,9 +8,12 @@ extents = Vector2( 1, 1 )
 [node name="CameraRoom" type="Area2D"]
 collision_layer = 32
 collision_mask = 21
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[connection signal="area_exited" from="." to="." method="_on_CameraRoom_area_exited"]
