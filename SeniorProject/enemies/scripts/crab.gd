@@ -3,29 +3,29 @@ extends KinematicBody2D
 var velocity = Vector2()
 var grav = 1400
 var speed = 25
+var accel = 500
 
-var player_detected = false
+var motion = Vector2.ZERO
+var left = Vector2(-1, 0)
+var right = Vector2(1, 0)
+var dir = left
 
-var target = null
-var target_pos = Vector2()
-
-var dir_x
-
-func apply_gravity(delta):
+func _process(delta):
+	
+	if is_on_wall():
+		if dir == left:
+			dir = right
+		elif dir == right:
+			dir = left
+	
 	velocity.y += grav * delta
-
-func apply_movement():
+	
+	velocity.x += dir.x * accel * delta
+	velocity.x = clamp(velocity.x, -speed, speed)
+	
 	velocity = move_and_slide(velocity, Vector2.UP)
+	
+	animate()
 
-func sleep():
-	velocity -= velocity
-
-func _on_PlayerDetection_body_entered(body):
-	if body.is_in_group("Player"):
-		player_detected = true
-		target = body
-
-func _on_PlayerDetection_body_exited(body):
-	if body.is_in_group("Player"):
-		player_detected = false
-		target = null
+func animate():
+	$Animator.play("move")
