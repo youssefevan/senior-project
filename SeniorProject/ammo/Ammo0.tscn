@@ -5,3 +5,5 @@
 
 [node name="Ammo0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[connection signal="area_entered" from="." to="." method="_on_Ammo0_area_entered"]

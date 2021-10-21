@@ -1,6 +1,6 @@
 extends Node2D
 
-var fire_rate = .2
+var fire_rate = .25
 var can_fire = true
 export var ammo_type = preload("res://ammo/Ammo0.tscn")
 export var start_pos = Vector2()
