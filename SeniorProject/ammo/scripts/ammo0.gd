@@ -9,4 +9,4 @@ func _process(delta):
 
 func _on_Ammo0_area_entered(area):
 	if area.get_collision_layer() == 4:
-		call_deferred("free")
+		explode()

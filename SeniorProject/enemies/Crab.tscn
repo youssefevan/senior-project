@@ -64,27 +64,18 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="MainHitbox" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="HitboxShape" type="CollisionShape2D" parent="MainHitbox"]
 rotation = 1.5708
 shape = SubResource( 3 )
 
-[node name="ClawHitboxLeft" type="Area2D" parent="."]
+[node name="HitboxShape2" type="CollisionShape2D" parent="MainHitbox"]
 position = Vector2( -8, -2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="HitboxShape" type="CollisionShape2D" parent="ClawHitboxLeft"]
 shape = SubResource( 4 )
 
-[node name="ClawHitboxRight" type="Area2D" parent="."]
+[node name="HitboxShape3" type="CollisionShape2D" parent="MainHitbox"]
 position = Vector2( 8, -2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="HitboxShape" type="CollisionShape2D" parent="ClawHitboxRight"]
 shape = SubResource( 4 )
 
 [node name="Hurtbox" type="Area2D" parent="."]

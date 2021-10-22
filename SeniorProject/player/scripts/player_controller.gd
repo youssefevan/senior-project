@@ -72,3 +72,10 @@ func _on_CameraRoomDetector_area_entered(area):
 		cr_size = area.global_scale
 		cr_pos = area.global_position
 		emit_signal("camera_room", cr_size, cr_pos)
+
+func _on_Hurtbox_area_entered(area):
+	if area.get_collision_layer() == 4:
+		die()
+
+func die():
+	print("dead")

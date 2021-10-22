@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const exp_scene = preload("res://effects/Explosion1.tscn")
+
 var velocity = Vector2()
 var grav = 1400
 var speed = 25
@@ -11,6 +13,7 @@ var right = Vector2(1, 0)
 var dir = left
 
 var health = 10
+var damage = 4
 
 func _process(delta):
 	
@@ -44,5 +47,10 @@ func hit():
 	print(health)
 
 func die():
-	print("dead")
+	explode()
 	call_deferred("free")
+
+func explode():
+	var explosion = exp_scene.instance()
+	explosion.position = position
+	get_tree().get_root().call_deferred("add_child", explosion)
