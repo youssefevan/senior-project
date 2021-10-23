@@ -5,6 +5,10 @@ signal not_grounded()
 signal camera_room(cr_size, cr_pos)
 signal flipped()
 signal not_flipped()
+signal dead()
+
+const exp_scene1 = preload("res://effects/Explosion2.tscn")
+const exp_scene2 = preload("res://effects/Explosion1.tscn")
 
 onready var animator = $Animator
 onready var sprite = $Sprite
@@ -35,6 +39,8 @@ var canCoyoteJump = false
 
 var cr_size = Vector2()
 var cr_pos = Vector2()
+
+var dead_pos = Vector2()
 
 func apply_gravity(delta):
 	velocity.y += grav * delta
@@ -78,4 +84,16 @@ func _on_Hurtbox_area_entered(area):
 		die()
 
 func die():
+	dead_pos = global_position
+	emit_signal("dead", dead_pos)
+	
+	var explosion1 = exp_scene1.instance()
+	explosion1.position = global_position
+	get_tree().get_root().call_deferred("add_child", explosion1)
+	
+	#var explosion2 = exp_scene2.instance()
+	#explosion2.position = global_position
+	#get_tree().get_root().call_deferred("add_child", explosion2)
+	
+	call_deferred("free")
 	print("dead")

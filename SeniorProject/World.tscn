@@ -52,5 +52,6 @@ position = Vector2( 320, 112 )
 position = Vector2( 696, 112 )
 
 [connection signal="camera_room" from="Player+Camera/Player" to="Player+Camera/Camera" method="_on_Player_camera_room"]
+[connection signal="dead" from="Player+Camera/Player" to="Player+Camera/Camera" method="_on_Player_dead"]
 [connection signal="grounded" from="Player+Camera/Player" to="Player+Camera/Camera" method="_on_Player_grounded"]
 [connection signal="not_grounded" from="Player+Camera/Player" to="Player+Camera/Camera" method="_on_Player_not_grounded"]
