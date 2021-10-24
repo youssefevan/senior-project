@@ -17,6 +17,7 @@ initial_velocity_random = 0.5
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale_curve = SubResource( 2 )
+color = Color( 0.25098, 1, 0, 1 )
 
 [node name="Explosion0" type="Particles2D"]
 emitting = false

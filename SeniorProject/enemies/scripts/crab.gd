@@ -12,8 +12,7 @@ var left = Vector2(-1, 0)
 var right = Vector2(1, 0)
 var dir = left
 
-var health = 10
-var damage = 4
+var health = 6
 
 func _process(delta):
 	

@@ -6,6 +6,8 @@ export var ammo_type = preload("res://ammo/Ammo0.tscn")
 export var start_pos = Vector2()
 var muzzle_flip_offset = 2
 
+const flare_scene = preload("res://effects/Flare0.tscn")
+
 func _ready():
 	position = start_pos
 
@@ -22,6 +24,13 @@ func shoot():
 	projectile.position = $Muzzle.global_position
 	projectile.rotation = global_rotation
 	get_tree().get_root().call_deferred("add_child", projectile)
+	
+	spawn_flare()
+
+func spawn_flare():
+	var flare = flare_scene.instance()
+	flare.position = $Muzzle.global_position
+	get_tree().get_root().call_deferred("add_child", flare)
 
 
 func _on_Player_flipped():
