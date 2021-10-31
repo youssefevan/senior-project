@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/tilesets/Tiles1.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://environment/camera_room/CameraRoom.tscn" type="PackedScene" id=5]
 [ext_resource path="res://enemies/Crab.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemies/Drone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/Turret.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node2D"]
 __meta__ = {
@@ -57,6 +58,14 @@ position = Vector2( 320, 64 )
 
 [node name="Drone2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 792, 104 )
+
+[node name="Turret" parent="." instance=ExtResource( 8 )]
+position = Vector2( 192, 16 )
+target_nodepath = NodePath("../Player+Camera/Player")
+
+[node name="Turret2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 744, -48 )
+target_nodepath = NodePath("../Player+Camera/Player")
 
 [connection signal="camera_room" from="Player+Camera/Player" to="Player+Camera/Camera" method="_on_Player_camera_room"]
 [connection signal="dead" from="Player+Camera/Player" to="Player+Camera/Camera" method="_on_Player_dead"]

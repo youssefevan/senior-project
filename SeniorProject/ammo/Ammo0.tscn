@@ -4,6 +4,7 @@
 [ext_resource path="res://ammo/scripts/ammo0.gd" type="Script" id=2]
 
 [node name="Ammo0" instance=ExtResource( 1 )]
+collision_mask = 38
 script = ExtResource( 2 )
 
 [connection signal="area_entered" from="." to="." method="_on_Ammo0_area_entered"]

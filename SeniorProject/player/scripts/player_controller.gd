@@ -31,6 +31,8 @@ var x_input = Vector2.ZERO
 var accel = 0
 var fric = 0
 
+var health = 10
+
 #var is_grounded
 #var facing = 0
 
@@ -80,12 +82,20 @@ func _on_CameraRoomDetector_area_entered(area):
 		emit_signal("camera_room", cr_size, cr_pos)
 
 func _on_Hurtbox_area_entered(area):
-	if area.get_collision_layer() == 4:
+	if area.get_collision_layer() == 4 or area.get_collision_layer() == 64:
+		hit()
+
+func hit():
+	$ShaderAnimator.play("hit")
+	health -= 1
+	print(health)
+	
+	if health <= 0:
 		die()
 
 func die():
-	dead_pos = global_position
-	emit_signal("dead", dead_pos)
+	#dead_pos = global_position
+	#emit_signal("dead", dead_pos)
 	
 	var explosion1 = exp_scene1.instance()
 	explosion1.position = global_position
@@ -95,5 +105,4 @@ func die():
 	#explosion2.position = global_position
 	#get_tree().get_root().call_deferred("add_child", explosion2)
 	
-	call_deferred("free")
 	print("dead")
