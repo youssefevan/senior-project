@@ -4,7 +4,7 @@ var speed
 var vel
 var damage
 
-const exp_scene = preload("res://effects/Explosion0.tscn")
+var exp_scene
 
 func movement(delta):
 	vel = Vector2(speed * delta, 0).rotated(rotation)

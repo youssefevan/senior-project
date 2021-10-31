@@ -14,6 +14,7 @@ func _ready():
 
 func _process(delta):
 	target_pos = target_node.global_position
+	$Barrel/Animator.play("shoot")
 	$Barrel.look_at(target_pos)
 	if can_fire:
 		shoot()
