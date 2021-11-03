@@ -22,10 +22,10 @@ func _process(delta):
 func _on_Hutbox_area_entered(area):
 	if area.get_collision_layer() == 16:
 		health -= area.damage
-		hit()
+		#hit()
 
-func hit():
-	print(health)
+#func hit():
+	#print(health)
 
 func die():
 	explode()

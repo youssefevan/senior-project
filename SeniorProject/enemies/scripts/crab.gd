@@ -40,10 +40,11 @@ func animate():
 func _on_Hurtbox_area_entered(area):
 	if area.get_collision_layer() == 16:
 		health -= area.damage
-		hit()
+		#hit()
 
-func hit():
-	print(health)
+#func hit():
+	
+	#pass
 
 func die():
 	explode()

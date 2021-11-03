@@ -28,8 +28,8 @@ tracks/0/keys = {
 script = ExtResource( 3 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-position = Vector2( 0, 5 )
-scale = Vector2( 0.8, 0.5 )
+position = Vector2( 0, 4 )
+scale = Vector2( 0.45, 0.4 )
 process_parent = true
 physics_process_parent = true
 

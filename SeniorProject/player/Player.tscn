@@ -138,7 +138,7 @@ shape = SubResource( 8 )
 [node name="Hurtbox" type="Area2D" parent="." groups=[
 "Player",
 ]]
-collision_mask = 76
+collision_mask = 456
 
 [node name="Collider" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource( 9 )

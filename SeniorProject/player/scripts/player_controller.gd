@@ -31,7 +31,7 @@ var x_input = Vector2.ZERO
 var accel = 0
 var fric = 0
 
-var health = 10
+var health = 5
 
 #var is_grounded
 #var facing = 0
@@ -82,7 +82,7 @@ func _on_CameraRoomDetector_area_entered(area):
 		emit_signal("camera_room", cr_size, cr_pos)
 
 func _on_Hurtbox_area_entered(area):
-	if area.get_collision_layer() == 4 or area.get_collision_layer() == 64:
+	if area.get_collision_layer() == 128 or area.get_collision_layer() == 64 or area.get_collision_layer() == 8:
 		hit()
 
 func hit():
