@@ -31,7 +31,9 @@ var x_input = Vector2.ZERO
 var accel = 0
 var fric = 0
 
-var health = 5
+var health = 4
+var is_hurt = false
+var i_time = 1.2
 
 #var is_grounded
 #var facing = 0
@@ -86,12 +88,17 @@ func _on_Hurtbox_area_entered(area):
 		hit()
 
 func hit():
-	$ShaderAnimator.play("hit")
-	health -= 1
-	print(health)
-	
-	if health <= 0:
-		die()
+	if is_hurt == false:
+		$ShaderAnimator.play("hit")
+		health -= 1
+		print(health)
+		
+		if health <= 0:
+			die()
+		
+		is_hurt = true
+		yield(get_tree().create_timer(i_time), "timeout")
+		is_hurt = false
 
 func die():
 	#dead_pos = global_position

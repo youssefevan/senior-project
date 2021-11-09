@@ -37,10 +37,10 @@ func _on_Player_flipped():
 	rotation_degrees = 180
 	position.x = -start_pos.x
 	$Muzzle.position.y = start_pos.y + muzzle_flip_offset
-	$Sprite.flip_v = true
+	#$Sprite.flip_v = true
 
 func _on_Player_not_flipped():
 	rotation_degrees = 0
 	position.x = start_pos.x
 	$Muzzle.position.y = start_pos.y
-	$Sprite.flip_v = false
+	#$Sprite.flip_v = false

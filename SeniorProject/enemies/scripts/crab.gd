@@ -14,6 +14,10 @@ var dir = left
 
 var health = 6
 
+func _ready():
+	var mat = get_node("Sprite").get_material().duplicate(true)
+	get_node("Sprite").set_material(mat)
+
 func _process(delta):
 	
 	if is_on_wall():
@@ -40,11 +44,10 @@ func animate():
 func _on_Hurtbox_area_entered(area):
 	if area.get_collision_layer() == 16:
 		health -= area.damage
-		#hit()
+		hit()
 
-#func hit():
-	
-	#pass
+func hit():
+	$ShaderAnimator.play("flash")
 
 func die():
 	explode()

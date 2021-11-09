@@ -5,6 +5,10 @@ const exp_scene = preload("res://effects/Explosion1.tscn")
 var velocity = Vector2(-50, 50)
 var health = 2
 
+func _ready():
+	var mat = get_node("Sprite").get_material().duplicate(true)
+	get_node("Sprite").set_material(mat)
+
 func sprite_rotation():
 	$Sprite.rotation_degrees += 3
 
@@ -22,10 +26,10 @@ func _process(delta):
 func _on_Hutbox_area_entered(area):
 	if area.get_collision_layer() == 16:
 		health -= area.damage
-		#hit()
+		hit()
 
-#func hit():
-	#print(health)
+func hit():
+	$ShaderAnimator.play("flash")
 
 func die():
 	explode()
