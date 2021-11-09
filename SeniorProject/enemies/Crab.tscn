@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=2]
 resource_name = "flash"
 length = 0.4
 tracks/0/type = "value"
@@ -36,17 +36,17 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 3 )
 shader_param/redden = false
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 3.99997, 7.00001 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 4.25, 7.5 )
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CircleShape2D" id=6]
 radius = 3.0
 
 [sub_resource type="CapsuleShape2D" id=7]
@@ -59,7 +59,7 @@ height = 10.0
 
 [node name="Crab" type="KinematicBody2D"]
 collision_layer = 4
-collision_mask = 63
+collision_mask = 10
 collision/safe_margin = 0.02
 script = ExtResource( 2 )
 
@@ -67,10 +67,10 @@ script = ExtResource( 2 )
 anims/move = SubResource( 1 )
 
 [node name="ShaderAnimator" type="AnimationPlayer" parent="."]
-anims/flash = SubResource( 9 )
+anims/flash = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 10 )
+material = SubResource( 3 )
 position = Vector2( 0, -1 )
 texture = ExtResource( 1 )
 hframes = 3
@@ -85,7 +85,7 @@ physics_process_parent = true
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
 rotation = 1.5708
-shape = SubResource( 14 )
+shape = SubResource( 4 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 128
@@ -93,15 +93,15 @@ collision_layer = 128
 [node name="HitboxShape" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 0, 0.75 )
 rotation = 1.5708
-shape = SubResource( 12 )
+shape = SubResource( 5 )
 
 [node name="HitboxShape2" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( -7, -2 )
-shape = SubResource( 13 )
+shape = SubResource( 6 )
 
 [node name="HitboxShape3" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 7, -2 )
-shape = SubResource( 13 )
+shape = SubResource( 6 )
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 256
