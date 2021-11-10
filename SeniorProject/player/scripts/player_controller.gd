@@ -112,4 +112,15 @@ func die():
 	#explosion2.position = global_position
 	#get_tree().get_root().call_deferred("add_child", explosion2)
 	
+	$StateMachine.set_process(false)
+	$Blaster.set_process(false)
+	$Sprite.hide()
+	
 	print("dead")
+
+#func _on_CameraRoom_area_exited(area):
+	#pass # Replace with function body.
+
+func _on_KillzoneDetection_body_entered(body):
+	if body.get_collision_layer() == 512:
+		die()

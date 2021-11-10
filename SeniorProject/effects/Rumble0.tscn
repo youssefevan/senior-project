@@ -2,13 +2,13 @@
 
 [ext_resource path="res://effects/scripts/explosion0.gd" type="Script" id=1]
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.461364 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=3]
-curve = SubResource( 2 )
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 2
 emission_box_extents = Vector3( 8, 1, 1 )
 flag_disable_z = true
@@ -16,7 +16,7 @@ gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 2.0
-scale_curve = SubResource( 3 )
+scale_curve = SubResource( 2 )
 color = Color( 1, 0, 0, 1 )
 
 [node name="Rumble0" type="Particles2D"]
@@ -24,5 +24,5 @@ emitting = false
 amount = 16
 lifetime = 0.3
 one_shot = true
-process_material = SubResource( 1 )
+process_material = SubResource( 3 )
 script = ExtResource( 1 )

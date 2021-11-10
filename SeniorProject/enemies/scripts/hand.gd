@@ -58,7 +58,6 @@ func _on_PlayerDetection_area_exited(area):
 
 func _on_Hitboxes_area_entered(area):
 	if area.get_collision_layer() == 1:
-		
 		$Sprite.frame = 2
 		yield(get_tree().create_timer(grab_anim_time), "timeout")
 		$Sprite.frame = 1

@@ -1,7 +1,7 @@
 extends "res://ammo/scripts/ammo.gd"
 
 func _ready():
-	speed = 100
+	speed = 120
 	damage = 1
 	exp_scene = preload("res://effects/Explosion3.tscn")
 

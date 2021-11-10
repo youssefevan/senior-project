@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/health_ui.png-3da9e30fd5bcb43bab68141879269fe7.stex"
+path="res://.import/lava.png-20854f5778b44ac2e175508fb929632a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gui/health_ui.png"
-dest_files=[ "res://.import/health_ui.png-3da9e30fd5bcb43bab68141879269fe7.stex" ]
+source_file="res://sprites/tiles/lava.png"
+dest_files=[ "res://.import/lava.png-20854f5778b44ac2e175508fb929632a.stex" ]
 
 [params]
 

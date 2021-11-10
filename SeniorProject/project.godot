@@ -73,6 +73,7 @@ fire={
 2d_physics/layer_7="Enemy Ammo"
 2d_physics/layer_8="Enemy Hitbox"
 2d_physics/layer_9="Enemy Hurtbox"
+2d_physics/layer_10="Killzone"
 
 [physics]
 

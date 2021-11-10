@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/health_ui.png-3da9e30fd5bcb43bab68141879269fe7.stex"
+path="res://.import/up_dog.png-d00cd6aaadcd0cb9f2f158f3f0dce4b4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gui/health_ui.png"
-dest_files=[ "res://.import/health_ui.png-3da9e30fd5bcb43bab68141879269fe7.stex" ]
+source_file="res://sprites/hazards/up_dog.png"
+dest_files=[ "res://.import/up_dog.png-d00cd6aaadcd0cb9f2f158f3f0dce4b4.stex" ]
 
 [params]
 
