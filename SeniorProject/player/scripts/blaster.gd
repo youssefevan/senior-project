@@ -19,7 +19,6 @@ func _process(delta):
 		can_fire = true
 
 func shoot():
-	pass
 	var projectile = ammo_type.instance()
 	projectile.position = $Muzzle.global_position
 	projectile.rotation = global_rotation

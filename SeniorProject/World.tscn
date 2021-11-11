@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/tilesets/Tiles1.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://environment/tilesets/Tiles3.tscn" type="PackedScene" id=10]
 [ext_resource path="res://enemies/Turret.tscn" type="PackedScene" id=11]
 [ext_resource path="res://hazards/Stalactite.tscn" type="PackedScene" id=12]
+[ext_resource path="res://gui/HealthGUI.tscn" type="PackedScene" id=13]
 
 [node name="World" type="Node2D"]
 __meta__ = {
@@ -57,7 +58,6 @@ __meta__ = {
 collision/safe_margin = 0.01
 
 [node name="Camera" parent="Player+Camera" instance=ExtResource( 3 )]
-drag_margin_h_enabled = false
 target_nodepath = NodePath("../Player")
 
 [node name="Spike" type="Node2D" parent="."]
@@ -111,6 +111,10 @@ position = Vector2( 264, 120 )
 [node name="Turret" parent="Enemies" instance=ExtResource( 11 )]
 position = Vector2( 1040, 16 )
 target_nodepath = NodePath("../../Player+Camera/Player")
+
+[node name="GUI" type="Node2D" parent="."]
+
+[node name="HealthGUI" parent="GUI" instance=ExtResource( 13 )]
 
 [connection signal="camera_room" from="Player+Camera/Player" to="Player+Camera/Camera" method="_on_Player_camera_room"]
 [connection signal="dead" from="Player+Camera/Player" to="Player+Camera/Camera" method="_on_Player_dead"]

@@ -31,7 +31,7 @@ var x_input = Vector2.ZERO
 var accel = 0
 var fric = 0
 
-var health = 4
+export (int) var health = 4
 var is_hurt = false
 var i_time = 1.2
 
@@ -45,6 +45,12 @@ var cr_size = Vector2()
 var cr_pos = Vector2()
 
 var dead_pos = Vector2()
+
+func _ready():
+	Global.player = self
+
+func _exit_tree():
+	Global.player = null
 
 func apply_gravity(delta):
 	velocity.y += grav * delta
@@ -114,6 +120,8 @@ func die():
 	
 	$StateMachine.set_process(false)
 	$Blaster.set_process(false)
+	$Hurtbox.call_deferred("free")
+	$KillzoneDetection.call_deferred("free")
 	$Sprite.hide()
 	
 	print("dead")

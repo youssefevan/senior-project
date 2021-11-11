@@ -48,13 +48,6 @@ func _on_Player_camera_room(cr_size, cr_pos):
 	self.limit_bottom = bottom
 	self.limit_right = right
 
-func _on_Player_grounded():
-	drag_margin_top = lerp(drag_margin_top, 0, drag_speed)
-	#drag_margin_bottom = lerp(drag_margin_bottom, 0, drag_speed)
-	
-	
-	#drag_margin_v_enabled = false
-
 func _on_Player_not_grounded():
 	drag_margin_top = lerp(drag_margin_top, drag_top, drag_speed)
 	#drag_margin_bottom = lerp(drag_margin_bottom, drag_bottom, drag_speed)

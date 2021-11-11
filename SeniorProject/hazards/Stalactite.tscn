@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 2 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3, 2 )
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -15,7 +15,7 @@ extents = Vector2( 56, 52 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 40, 52 )
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=5]
 radius = 3.0
 
 [node name="Stalactite" type="KinematicBody2D"]
@@ -37,7 +37,7 @@ collision_mask = 519
 
 [node name="Collider" type="CollisionShape2D" parent="CollisionDetection"]
 position = Vector2( 0, 3 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="Anticipation" type="Area2D" parent="."]
 collision_layer = 4
@@ -58,7 +58,7 @@ collision_layer = 128
 
 [node name="Collider" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 0, 3 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [connection signal="body_entered" from="CollisionDetection" to="." method="_on_CollisionDetection_body_entered"]
 [connection signal="area_entered" from="Anticipation" to="." method="_on_Anticipation_area_entered"]
