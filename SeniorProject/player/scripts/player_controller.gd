@@ -33,7 +33,7 @@ var fric = 0
 
 export (int) var health = 4
 var is_hurt = false
-var i_time = 1.2
+var i_time = 1
 
 #var is_grounded
 #var facing = 0
@@ -123,6 +123,7 @@ func die():
 	$Hurtbox.call_deferred("free")
 	$KillzoneDetection.call_deferred("free")
 	$Sprite.hide()
+	$Collider.call_deferred("free")
 	
 	print("dead")
 

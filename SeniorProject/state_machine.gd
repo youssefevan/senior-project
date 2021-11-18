@@ -1,6 +1,6 @@
 extends Node
 
-var state = null
+var state = null setget set_state
 var previous_state = null
 var states = {}
 

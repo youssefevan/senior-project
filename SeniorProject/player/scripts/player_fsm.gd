@@ -30,7 +30,7 @@ func state_logic(delta):
 	
 	# If grounded
 	if [states.idle, states.run].has(state):
-		parent.emit_signal("grounded")
+		#parent.emit_signal("grounded")
 		# change friction and acceleration
 		parent.accel = parent.GROUND_ACCEL
 		parent.fric = parent.GROUND_FRIC

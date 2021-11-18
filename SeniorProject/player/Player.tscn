@@ -94,7 +94,7 @@ extents = Vector2( 3, 6 )
 extents = Vector2( 0, 0 )
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 3, 6 )
+extents = Vector2( 3.1, 6.1 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 4, 7 )
@@ -123,6 +123,7 @@ position = Vector2( 0, -2 )
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 2
+frame = 9
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource( 7 )
@@ -145,6 +146,7 @@ collision_mask = 456
 shape = SubResource( 9 )
 
 [node name="KillzoneDetection" type="Area2D" parent="."]
+collision_layer = 1024
 collision_mask = 512
 
 [node name="Collider" type="CollisionShape2D" parent="KillzoneDetection"]
