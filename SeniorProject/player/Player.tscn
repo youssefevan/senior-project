@@ -102,7 +102,7 @@ extents = Vector2( 4, 7 )
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
-collision/safe_margin = 0.04
+collision/safe_margin = 0.01
 script = ExtResource( 3 )
 
 [node name="Animator" type="AnimationPlayer" parent="."]

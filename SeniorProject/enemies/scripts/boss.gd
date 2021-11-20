@@ -20,6 +20,8 @@ var fire_rate = .8
 var can_fire
 var run = false
 
+var points = 4000
+
 export (NodePath) var target_nodepath = null
 var target_node
 var target_pos

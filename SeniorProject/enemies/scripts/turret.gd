@@ -9,6 +9,8 @@ var can_fire
 var fire_rate = .8
 var health = 5
 
+var points = 550
+
 func _ready():
 	target_node = get_node(target_nodepath)
 	can_fire = true
@@ -44,6 +46,7 @@ func hit():
 	$ShaderAnimator.play("flash")
 
 func die():
+	Global.score += points
 	explode()
 	call_deferred("free")
 
@@ -51,3 +54,8 @@ func explode():
 	var explosion = exp_scene.instance()
 	explosion.position = position
 	get_tree().get_root().call_deferred("add_child", explosion)
+
+
+func _on_KillzoneDetection_body_entered(body):
+	if body.get_collision_layer() == 512:
+		die()

@@ -57,6 +57,7 @@ func apply_gravity(delta):
 
 func apply_movement():
 	velocity = move_and_slide(velocity, Vector2.UP)
+	print(Global.score)
 
 func handle_move_input(delta):
 	x_input = Input.get_action_strength("right") - Input.get_action_strength("left")

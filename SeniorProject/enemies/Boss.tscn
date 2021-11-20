@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://sprites/boss/ss_boss.png" type="Texture" id=1]
 [ext_resource path="res://sprites/enemies/boss-barrel.png" type="Texture" id=2]
@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 12 )
 
-[sub_resource type="ShaderMaterial" id=8]
+[sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 4 )
 shader_param/redden = false
 
@@ -27,8 +27,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -42,8 +41,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "jump"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -57,8 +55,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "recover"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -72,7 +69,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 resource_name = "flash"
 length = 0.4
 tracks/0/type = "value"
@@ -88,11 +85,27 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=8]
 radius = 14.0
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=9]
 height = 6.0
+
+[sub_resource type="Animation" id=10]
+resource_name = "shoot"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
 
 [node name="Boss" type="KinematicBody2D"]
 collision_layer = 4
@@ -103,7 +116,7 @@ script = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 8 )
+material = SubResource( 2 )
 position = Vector2( 0, -4 )
 texture = ExtResource( 1 )
 hframes = 4
@@ -112,12 +125,12 @@ frame = 1
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 anims/crouch = SubResource( 3 )
-anims/idle = SubResource( 2 )
-anims/jump = SubResource( 4 )
-anims/recover = SubResource( 5 )
+anims/idle = SubResource( 4 )
+anims/jump = SubResource( 5 )
+anims/recover = SubResource( 6 )
 
 [node name="ShaderAnimator" type="AnimationPlayer" parent="."]
-anims/flash = SubResource( 9 )
+anims/flash = SubResource( 7 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 position = Vector2( -5.96046e-08, 0 )
@@ -130,18 +143,19 @@ collision_layer = 256
 collision_mask = 16
 
 [node name="Collider" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 128
 
 [node name="Collider" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="Barrel" type="Position2D" parent="."]
 position = Vector2( 0, -8 )
 
 [node name="Animator" type="AnimationPlayer" parent="Barrel"]
+anims/shoot = SubResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="Barrel"]
 position = Vector2( 12, 0 )

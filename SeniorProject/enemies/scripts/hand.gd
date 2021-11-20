@@ -13,6 +13,8 @@ var health = 4
 
 var velocity = Vector2()
 
+var points = 450
+
 func _ready():
 	$Sprite.frame = 0
 
@@ -71,6 +73,7 @@ func hit():
 	$ShaderAnimator.play("flash")
 
 func die():
+	Global.score += points
 	explode()
 	call_deferred("free")
 
@@ -79,3 +82,7 @@ func explode():
 	explosion.position.x = position.x
 	explosion.position.y = position.y - 8
 	get_tree().get_root().call_deferred("add_child", explosion)
+
+func _on_KillzoneDetection_body_entered(body):
+	if body.get_collision_layer() == 512:
+		die()

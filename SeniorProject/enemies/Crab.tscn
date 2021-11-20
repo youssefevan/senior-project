@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sprites/enemies/crab.png" type="Texture" id=1]
 [ext_resource path="res://enemies/scripts/crab.gd" type="Script" id=2]
@@ -56,6 +56,9 @@ height = 16.0
 [sub_resource type="CapsuleShape2D" id=8]
 radius = 2.0
 height = 10.0
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 7.5, 4.25 )
 
 [node name="Crab" type="KinematicBody2D"]
 collision_layer = 4
@@ -117,4 +120,13 @@ position = Vector2( 0, 3 )
 rotation = 1.5708
 shape = SubResource( 8 )
 
+[node name="KillzoneDetection" type="Area2D" parent="."]
+collision_layer = 2048
+collision_mask = 512
+
+[node name="Collider" type="CollisionShape2D" parent="KillzoneDetection"]
+position = Vector2( 0, 0.75 )
+shape = SubResource( 9 )
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="body_entered" from="KillzoneDetection" to="." method="_on_KillzoneDetection_body_entered"]
