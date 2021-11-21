@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 16 )
+
+[node name="BossRoomTrigger" type="Area2D"]
+collision_layer = 8192
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

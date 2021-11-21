@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gui/MainMenuGUI.tscn" type="PackedScene" id=1]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2( 2.5, 2.5 )
+transform = Transform2D( 2.5, 0, 0, 2.5, 0, 0 )
+
+[node name="MainMenuGUI" parent="CanvasLayer" instance=ExtResource( 1 )]

@@ -29,13 +29,17 @@ var target_pos
 var player_dir
 var dir_multiplier = 100
 
-var health = 25
+var health = 20
 var start
 
 func _ready():
 	target_node = get_node(target_nodepath)
 	can_fire = true
 	start = true
+	Global.boss = self
+
+func _exit_tree():
+	Global.boss = null
 
 func _process(delta):
 	if start:
