@@ -1,18 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://sprites/gui/buttons/start_default.png" type="Texture" id=1]
-[ext_resource path="res://sprites/gui/buttons/start_hover.png" type="Texture" id=2]
-[ext_resource path="res://sprites/gui/buttons/start_selected.png" type="Texture" id=3]
-[ext_resource path="res://sprites/gui/buttons/options_default.png" type="Texture" id=4]
-[ext_resource path="res://sprites/gui/buttons/options_hover.png" type="Texture" id=5]
-[ext_resource path="res://sprites/gui/buttons/options_selected.png" type="Texture" id=6]
-[ext_resource path="res://sprites/gui/buttons/quit_default.png" type="Texture" id=7]
-[ext_resource path="res://sprites/gui/buttons/quit_hover.png" type="Texture" id=8]
-[ext_resource path="res://sprites/gui/buttons/quit_selected.png" type="Texture" id=9]
+[ext_resource path="res://gui/theme_data/ui_theme.tres" type="Theme" id=2]
 
 [node name="MainMenuGUI" type="Control"]
 margin_right = 256.0
 margin_bottom = 144.0
+theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -20,35 +13,30 @@ __meta__ = {
 [node name="Menu" type="VBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = -57.0
-margin_right = 80.0
-margin_bottom = -8.0
-custom_constants/separation = 0
+margin_left = 16.0
+margin_top = -61.0
+margin_right = 74.0
+margin_bottom = -17.0
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="StartButton" type="TextureButton" parent="Menu"]
-margin_right = 72.0
-margin_bottom = 16.0
-texture_normal = ExtResource( 1 )
-texture_pressed = ExtResource( 3 )
-texture_hover = ExtResource( 2 )
+[node name="StartBtn" type="Button" parent="Menu"]
+margin_right = 58.0
+margin_bottom = 12.0
+text = "Start"
+align = 0
 
-[node name="OptionsButton" type="TextureButton" parent="Menu"]
+[node name="OptBtn" type="Button" parent="Menu"]
 margin_top = 16.0
-margin_right = 72.0
-margin_bottom = 32.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 6 )
-texture_hover = ExtResource( 5 )
+margin_right = 58.0
+margin_bottom = 28.0
+text = "Options"
+align = 0
 
-[node name="QuitButton" type="TextureButton" parent="Menu"]
+[node name="QuitBtn" type="Button" parent="Menu"]
 margin_top = 32.0
-margin_right = 72.0
-margin_bottom = 48.0
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 9 )
-texture_hover = ExtResource( 8 )
+margin_right = 58.0
+margin_bottom = 44.0
+text = "Quit"
+align = 0

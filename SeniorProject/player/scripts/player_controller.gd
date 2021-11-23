@@ -65,7 +65,7 @@ func apply_movement():
 	else:
 		velocity = velocity
 	velocity = move_and_slide(velocity, Vector2.UP)
-	print(Global.score)
+	#print(Global.score)
 
 func handle_move_input(delta):
 	x_input = Input.get_action_strength("right") - Input.get_action_strength("left")

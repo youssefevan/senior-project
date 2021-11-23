@@ -6,4 +6,5 @@ func _process(delta):
 			visible = true
 		else:
 			visible = false
-		$HealthFull.rect_size.x = 3 * Global.boss.health
+		$HealthFull.rect_size.x = 2 * Global.boss.health
+		$HealthFull2.rect_size.x = 2 * Global.boss.health
