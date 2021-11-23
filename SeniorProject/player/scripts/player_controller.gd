@@ -31,6 +31,9 @@ var x_input = Vector2.ZERO
 var accel = 0
 var fric = 0
 
+var hitstun = false
+var hitstun_time = .3
+
 export (int) var health = 4
 var is_hurt = false
 var i_time = 1
@@ -56,6 +59,11 @@ func apply_gravity(delta):
 	velocity.y += grav * delta
 
 func apply_movement():
+	
+	if hitstun == true:
+		velocity = Vector2.ZERO
+	else:
+		velocity = velocity
 	velocity = move_and_slide(velocity, Vector2.UP)
 	print(Global.score)
 
@@ -106,9 +114,16 @@ func hit():
 		if health <= 0:
 			die()
 		
+		hitstun()
+		
 		is_hurt = true
 		yield(get_tree().create_timer(i_time), "timeout")
 		is_hurt = false
+
+func hitstun():
+	hitstun = true
+	yield(get_tree().create_timer(hitstun_time), "timeout")
+	hitstun = false
 
 func die():
 	#dead_pos = global_position

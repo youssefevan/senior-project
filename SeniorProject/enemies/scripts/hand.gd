@@ -44,7 +44,7 @@ func _on_DetectAnticipation_area_entered(area):
 		get_tree().get_root().call_deferred("add_child", antic)
 
 func _on_PlayerDetection_area_entered(area):
-	if area.get_collision_layer() == 1:
+	if area.get_collision_layer() == 1 and area.get_collision_mask() != 32:
 		$Sprite.frame = 1
 		player_detected = true
 		if is_on_floor():
