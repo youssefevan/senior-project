@@ -114,7 +114,7 @@ func hit():
 		if health <= 0:
 			die()
 		
-		hitstun()
+		#hitstun()
 		
 		is_hurt = true
 		yield(get_tree().create_timer(i_time), "timeout")
@@ -128,6 +128,8 @@ func hitstun():
 func die():
 	#dead_pos = global_position
 	#emit_signal("dead", dead_pos)
+	
+	Global.player_dead = true
 	
 	var explosion1 = exp_scene1.instance()
 	explosion1.position = global_position
@@ -143,6 +145,7 @@ func die():
 	$KillzoneDetection.call_deferred("free")
 	$Sprite.hide()
 	$Collider.call_deferred("free")
+	$Hurtbox.call_deferred("free")
 	
 	print("dead")
 

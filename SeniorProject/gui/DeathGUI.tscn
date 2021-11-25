@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://gui/theme_data/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://gui/scripts/death_gui.gd" type="Script" id=2]
+
+[node name="DeathGUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 256.0
+margin_bottom = 144.0
+color = Color( 0, 0, 0, 0.333333 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -60.0
+margin_right = 76.0
+margin_bottom = -16.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RetryBtn" type="Button" parent="VBoxContainer"]
+margin_right = 70.0
+margin_bottom = 12.0
+text = "Retry"
+align = 0
+
+[node name="OptBtn" type="Button" parent="VBoxContainer"]
+margin_top = 16.0
+margin_right = 70.0
+margin_bottom = 28.0
+text = "Options"
+align = 0
+
+[node name="MenuBtn" type="Button" parent="VBoxContainer"]
+margin_top = 32.0
+margin_right = 70.0
+margin_bottom = 44.0
+text = "Main Menu"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -30.0
+margin_top = 35.0
+margin_right = 30.0
+margin_bottom = 45.0
+text = "You Died"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="VBoxContainer/RetryBtn" to="." method="_on_RetryBtn_button_up"]
+[connection signal="button_up" from="VBoxContainer/MenuBtn" to="." method="_on_MenuBtn_button_up"]

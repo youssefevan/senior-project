@@ -19,6 +19,8 @@ var prev_limit_bottom = 0
 var prev_limit_left = 0
 var prev_limit_right = 0
 
+var room_size = Vector2()
+
 #var p_dead = false
 #var p_dead_pos = Vector2()
 
@@ -31,13 +33,9 @@ func _ready():
 	#p_dead = true
 	#p_dead_pos = dead_pos
 
-func _process(delta):
-	#if p_dead == false:
-		self.global_position = lerp(self.global_position, target_node.global_position, smooth_speed)
-	#elif p_dead == true:
-	#	self.global_position = p_dead_pos
-
 func _on_Player_camera_room(cr_size, cr_pos):
+	room_size = cr_size
+	
 	top = cr_pos.y - cr_size.y
 	left = cr_pos.x - cr_size.x
 	bottom = (top) + (cr_size.y * 2)
@@ -47,6 +45,15 @@ func _on_Player_camera_room(cr_size, cr_pos):
 	self.limit_left = left
 	self.limit_bottom = bottom
 	self.limit_right = right
+
+func _process(delta):
+	#if p_dead == false:
+	self.global_position = lerp(self.global_position, target_node.global_position, smooth_speed)
+	
+	if room_size.y > 72:
+		drag_margin_top = 0
+	#elif p_dead == true:
+	#	self.global_position = p_dead_pos
 
 func _on_Player_not_grounded():
 	drag_margin_top = lerp(drag_margin_top, drag_top, drag_speed)

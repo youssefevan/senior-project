@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://gui/theme_data/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://gui/scripts/level_select_gui.gd" type="Script" id=2]
+
+[node name="LevelSelectGUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -46.0
+margin_top = -53.0
+margin_right = 46.0
+margin_bottom = 53.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 92.0
+margin_bottom = 10.0
+text = "LEVEL SELECT"
+align = 1
+
+[node name="TutBtn" type="Button" parent="VBoxContainer"]
+margin_top = 14.0
+margin_right = 92.0
+margin_bottom = 26.0
+text = "Tutorial"
+
+[node name="Lv1Btn" type="Button" parent="VBoxContainer"]
+margin_top = 30.0
+margin_right = 92.0
+margin_bottom = 42.0
+text = "Level 1"
+
+[node name="Lv2Btn" type="Button" parent="VBoxContainer"]
+margin_top = 46.0
+margin_right = 92.0
+margin_bottom = 58.0
+text = "Level 2"
+
+[node name="Lv3Btn" type="Button" parent="VBoxContainer"]
+margin_top = 62.0
+margin_right = 92.0
+margin_bottom = 74.0
+text = "Level 3"
+
+[node name="Lv4Btn" type="Button" parent="VBoxContainer"]
+margin_top = 78.0
+margin_right = 92.0
+margin_bottom = 90.0
+text = "Level 4"
+
+[node name="Lv5Btn" type="Button" parent="VBoxContainer"]
+margin_top = 94.0
+margin_right = 92.0
+margin_bottom = 106.0
+text = "Level 5"
+
+[node name="BackBtn" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 11.0
+margin_top = -20.0
+margin_right = 51.0
+margin_bottom = -8.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="VBoxContainer/TutBtn" to="." method="_on_TutBtn_button_up"]
+[connection signal="button_up" from="VBoxContainer/Lv1Btn" to="." method="_on_Lv1Btn_button_up"]
+[connection signal="button_up" from="VBoxContainer/Lv2Btn" to="." method="_on_Lv2Btn_button_up"]
+[connection signal="button_up" from="VBoxContainer/Lv3Btn" to="." method="_on_Lv3Btn_button_up"]
+[connection signal="button_up" from="VBoxContainer/Lv4Btn" to="." method="_on_Lv4Btn_button_up"]
+[connection signal="button_up" from="VBoxContainer/Lv5Btn" to="." method="_on_Lv5Btn_button_up"]
+[connection signal="button_up" from="BackBtn" to="." method="_on_BackBtn_button_up"]

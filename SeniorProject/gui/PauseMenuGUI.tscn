@@ -35,7 +35,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer"]
 margin_right = 84.0
 margin_bottom = 10.0
 text = "GAME PAUSED"
@@ -68,7 +68,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitBtn" type="Button" parent="VBoxContainer"]
+[node name="MenuBtn" type="Button" parent="VBoxContainer"]
 margin_top = 62.0
 margin_right = 84.0
 margin_bottom = 74.0
@@ -78,3 +78,5 @@ __meta__ = {
 }
 
 [connection signal="button_up" from="VBoxContainer/ContBtn" to="." method="_on_ContBtn_button_up"]
+[connection signal="button_up" from="VBoxContainer/RestartBtn" to="." method="_on_RestartBtn_button_up"]
+[connection signal="button_up" from="VBoxContainer/MenuBtn" to="." method="_on_QuitBtn_button_up"]
