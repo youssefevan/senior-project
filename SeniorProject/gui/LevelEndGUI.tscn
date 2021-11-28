@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://gui/theme_data/ui_theme.tres" type="Theme" id=1]
-[ext_resource path="res://gui/scripts/death_gui.gd" type="Script" id=2]
+[ext_resource path="res://gui/scripts/level_end_gui.gd" type="Script" id=2]
 
-[node name="DeathGUI" type="Control"]
+[node name="LevelEndGUI" type="Control"]
+pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,11 +23,22 @@ __meta__ = {
 }
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = 97.0
+margin_left = 72.0
 margin_top = 35.0
-margin_right = 159.0
+margin_right = 184.0
 margin_bottom = 45.0
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_left = 74.0
+margin_top = 35.0
+margin_right = 182.0
+margin_bottom = 45.0
+text = "Level Complete"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -35,45 +47,24 @@ __meta__ = {
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 16.0
-margin_top = -60.0
-margin_right = 76.0
-margin_bottom = -16.0
+margin_top = -43.0
+margin_right = 94.0
+margin_bottom = -15.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="RetryBtn" type="Button" parent="VBoxContainer"]
-margin_right = 70.0
+[node name="NextBtn" type="Button" parent="VBoxContainer"]
+margin_right = 78.0
 margin_bottom = 12.0
-text = "Retry"
-align = 0
-
-[node name="OptBtn" type="Button" parent="VBoxContainer"]
-margin_top = 16.0
-margin_right = 70.0
-margin_bottom = 28.0
-text = "Options"
-align = 0
+text = "Next Level"
 
 [node name="MenuBtn" type="Button" parent="VBoxContainer"]
-margin_top = 32.0
-margin_right = 70.0
-margin_bottom = 44.0
+margin_top = 16.0
+margin_right = 78.0
+margin_bottom = 28.0
 text = "Main Menu"
 
-[node name="Label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -29.0
-margin_top = 35.0
-margin_right = 31.0
-margin_bottom = 45.0
-text = "You Died"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="button_up" from="VBoxContainer/RetryBtn" to="." method="_on_RetryBtn_button_up"]
+[connection signal="button_up" from="VBoxContainer/NextBtn" to="." method="_on_NextBtn_button_up"]
 [connection signal="button_up" from="VBoxContainer/MenuBtn" to="." method="_on_MenuBtn_button_up"]

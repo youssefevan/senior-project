@@ -16,6 +16,8 @@ var velocity = Vector2()
 var points = 450
 
 func _ready():
+	var mat = get_node("Sprite").get_material().duplicate(true)
+	get_node("Sprite").set_material(mat)
 	$Sprite.frame = 0
 
 func _process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://environment/tilesets/Tiles1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/camera_room/CameraRoom.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://gui/ScoreGUI.tscn" type="PackedScene" id=13]
 [ext_resource path="res://gui/PauseMenuGUI.tscn" type="PackedScene" id=14]
 [ext_resource path="res://gui/DeathGUI.tscn" type="PackedScene" id=15]
+[ext_resource path="res://gui/LevelEndGUI.tscn" type="PackedScene" id=16]
 
 [node name="Level2" type="Node2D"]
 
@@ -28,6 +29,8 @@ layer = 2
 [node name="PauseMenuGUI" parent="UI" instance=ExtResource( 14 )]
 
 [node name="DeathGUI" parent="UI" instance=ExtResource( 15 )]
+
+[node name="LevelEndGUI" parent="UI" instance=ExtResource( 16 )]
 
 [node name="CameraRooms" type="Node2D" parent="."]
 __meta__ = {

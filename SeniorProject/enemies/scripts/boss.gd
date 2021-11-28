@@ -33,6 +33,8 @@ var health = 20
 var start
 
 func _ready():
+	var mat = get_node("Sprite").get_material().duplicate(true)
+	get_node("Sprite").set_material(mat)
 	target_node = get_node(target_nodepath)
 	can_fire = true
 	start = true

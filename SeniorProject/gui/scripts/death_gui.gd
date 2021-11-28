@@ -12,6 +12,7 @@ func _on_RetryBtn_button_up():
 
 func _on_MenuBtn_button_up():
 	get_tree().change_scene("res://levels/MainMenu.tscn")
+	Global.player_dead = false
 
 func _on_QuitBtn_button_up():
 	get_tree().quit()
