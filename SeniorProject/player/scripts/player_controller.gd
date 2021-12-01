@@ -12,6 +12,7 @@ const exp_scene2 = preload("res://effects/Explosion1.tscn")
 
 onready var animator = $Animator
 onready var sprite = $Sprite
+onready var jump_sfx = $JumpSFX
 
 const MAX_SPEED = 85
 const JUMP_FORCE = 200

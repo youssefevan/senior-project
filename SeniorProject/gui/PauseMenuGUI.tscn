@@ -90,3 +90,4 @@ __meta__ = {
 [connection signal="button_up" from="VBoxContainer/ContBtn" to="." method="_on_ContBtn_button_up"]
 [connection signal="button_up" from="VBoxContainer/RestartBtn" to="." method="_on_RestartBtn_button_up"]
 [connection signal="button_up" from="VBoxContainer/MenuBtn" to="." method="_on_QuitBtn_button_up"]
+[connection signal="button_up" from="VBoxContainer/MenuBtn" to="." method="_on_MenuBtn_button_up"]

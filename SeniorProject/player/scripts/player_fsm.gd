@@ -14,6 +14,7 @@ func _input(event):
 		parent.rememberJumpTime()
 		if parent.canCoyoteJump == true:
 			parent.velocity.y = -parent.JUMP_FORCE
+			parent.jump_sfx.play()
 	
 	# minimum jump height (variable jump heigth)
 	if state == states.jump:
@@ -42,6 +43,9 @@ func state_logic(delta):
 		if parent.jumpWasPressed == true:
 			# allow player to jump
 			parent.velocity.y = -parent.JUMP_FORCE
+			if !parent.jump_sfx.playing:
+				parent.jump_sfx.play()
+				parent.jump_sfx.play()
 	
 	# sprite flipping
 	if parent.velocity.x > 0:

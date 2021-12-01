@@ -20,8 +20,10 @@ func _on_MenuBtn_button_up():
 	get_tree().change_scene("res://levels/MainMenu.tscn")
 	get_tree().paused = not get_tree().paused
 	pause_state = false
+	Global.score = 0
 
 func _on_RestartBtn_button_up():
 	get_tree().reload_current_scene()
 	get_tree().paused = not get_tree().paused
 	pause_state = false
+	Global.score = 0
