@@ -6,3 +6,12 @@ var boss = null
 var boss_trigger = false
 var score = 0
 var level_end = false
+var level = 0
+var checkpoint_reached = false
+var boss_dead = false
+
+var level1_unlock = true
+var level2_unlock = true
+var level3_unlock = true
+var level4_unlock = true
+var level5_unlock = true

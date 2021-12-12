@@ -7,6 +7,12 @@ signal flipped()
 signal not_flipped()
 signal dead()
 
+export (NodePath) var spawn_nodepath = null
+var spawn
+
+export (NodePath) var checkpoint_nodepath = null
+var checkpoint
+
 const exp_scene1 = preload("res://effects/Explosion2.tscn")
 const exp_scene2 = preload("res://effects/Explosion1.tscn")
 
@@ -52,6 +58,14 @@ var dead_pos = Vector2()
 
 func _ready():
 	Global.player = self
+	$ShaderAnimator.play("default")
+	spawn = get_node(spawn_nodepath)
+	checkpoint = get_node(checkpoint_nodepath)
+	match Global.checkpoint_reached:
+		false:
+			global_position = spawn.global_position
+		true:
+			global_position = checkpoint.global_position
 
 func _exit_tree():
 	Global.player = null

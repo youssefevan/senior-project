@@ -12,11 +12,13 @@ config_version=4
 
 config/name="SeniorProject"
 run/main_scene="res://levels/MainMenu.tscn"
+config/use_custom_user_dir=true
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://global.gd"
+Audio="*res://sounds/Audio.tscn"
 
 [display]
 

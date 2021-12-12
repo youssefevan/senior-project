@@ -71,6 +71,9 @@ margin_right = 78.0
 margin_bottom = 44.0
 text = "Main Menu"
 
+[connection signal="button_down" from="VBoxContainer/NextBtn" to="." method="_on_NextBtn_button_down"]
 [connection signal="button_up" from="VBoxContainer/NextBtn" to="." method="_on_NextBtn_button_up"]
+[connection signal="button_down" from="VBoxContainer/RestartBtn" to="." method="_on_RestartBtn_button_down"]
 [connection signal="button_up" from="VBoxContainer/RestartBtn" to="." method="_on_RestartBtn_button_up"]
+[connection signal="button_down" from="VBoxContainer/MenuBtn" to="." method="_on_MenuBtn_button_down"]
 [connection signal="button_up" from="VBoxContainer/MenuBtn" to="." method="_on_MenuBtn_button_up"]

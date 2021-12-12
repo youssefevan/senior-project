@@ -79,10 +79,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="button_down" from="VBoxContainer/TutBtn" to="." method="_on_TutBtn_button_down"]
 [connection signal="button_up" from="VBoxContainer/TutBtn" to="." method="_on_TutBtn_button_up"]
+[connection signal="button_down" from="VBoxContainer/Lv1Btn" to="." method="_on_Lv1Btn_button_down"]
 [connection signal="button_up" from="VBoxContainer/Lv1Btn" to="." method="_on_Lv1Btn_button_up"]
+[connection signal="button_down" from="VBoxContainer/Lv2Btn" to="." method="_on_Lv2Btn_button_down"]
 [connection signal="button_up" from="VBoxContainer/Lv2Btn" to="." method="_on_Lv2Btn_button_up"]
+[connection signal="button_down" from="VBoxContainer/Lv3Btn" to="." method="_on_Lv3Btn_button_down"]
 [connection signal="button_up" from="VBoxContainer/Lv3Btn" to="." method="_on_Lv3Btn_button_up"]
+[connection signal="button_down" from="VBoxContainer/Lv4Btn" to="." method="_on_Lv4Btn_button_down"]
 [connection signal="button_up" from="VBoxContainer/Lv4Btn" to="." method="_on_Lv4Btn_button_up"]
+[connection signal="button_down" from="VBoxContainer/Lv5Btn" to="." method="_on_Lv5Btn_button_down"]
 [connection signal="button_up" from="VBoxContainer/Lv5Btn" to="." method="_on_Lv5Btn_button_up"]
+[connection signal="button_down" from="BackBtn" to="." method="_on_BackBtn_button_down"]
 [connection signal="button_up" from="BackBtn" to="." method="_on_BackBtn_button_up"]

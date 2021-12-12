@@ -4,6 +4,7 @@
 [ext_resource path="res://gui/scripts/death_gui.gd" type="Script" id=2]
 
 [node name="DeathGUI" type="Control"]
+pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0

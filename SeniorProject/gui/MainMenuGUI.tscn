@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://gui/scripts/main_menu_gui.gd" type="Script" id=1]
 [ext_resource path="res://gui/theme_data/ui_theme.tres" type="Theme" id=2]
+[ext_resource path="res://sounds/gui/select.wav" type="AudioStream" id=3]
 
 [node name="MainMenuGUI" type="Control"]
 pause_mode = 2
@@ -44,5 +45,12 @@ margin_bottom = 44.0
 text = "Quit"
 align = 0
 
+[node name="SelectSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="button_down" from="Menu/StartBtn" to="." method="_on_StartBtn_button_down"]
 [connection signal="button_up" from="Menu/StartBtn" to="." method="_on_StartBtn_button_up"]
+[connection signal="button_down" from="Menu/OptBtn" to="." method="_on_OptBtn_button_down"]
+[connection signal="button_up" from="Menu/OptBtn" to="." method="_on_OptBtn_button_up"]
+[connection signal="button_down" from="Menu/QuitBtn" to="." method="_on_QuitBtn_button_down"]
 [connection signal="button_up" from="Menu/QuitBtn" to="." method="_on_QuitBtn_button_up"]

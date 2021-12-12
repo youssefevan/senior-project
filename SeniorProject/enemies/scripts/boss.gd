@@ -130,6 +130,7 @@ func hit():
 	$ShaderAnimator.play("flash")
 
 func die():
+	Global.boss_dead = true
 	explode()
 	call_deferred("free")
 
