@@ -21,14 +21,14 @@ onready var sprite = $Sprite
 onready var jump_sfx = $JumpSFX
 
 const MAX_SPEED = 85
-const JUMP_FORCE = 200
+const JUMP_FORCE = 208
 const GRAV = 600
 const DOWN_GRAV = 1400
 const MAX_FALL_SPEED = 250
 
 const GROUND_ACCEL = 850
 const AIR_ACCEL = 555
-const GROUND_FRIC = .1
+const GROUND_FRIC = .123
 const AIR_FRIC = .01
 const MIN_JUMP_HEIGHT = 90
 

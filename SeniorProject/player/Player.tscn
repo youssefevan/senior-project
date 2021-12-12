@@ -86,7 +86,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "hit"
-length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:material:shader_param/redden")
 tracks/0/interp = 1

@@ -5,7 +5,7 @@ const exp_scene = preload("res://effects/Explosion2.tscn")
 
 var grav = 1000
 var velocity = Vector2.ZERO
-var jump_force = 300
+var jump_force = 340
 
 var idling = false
 var crouching = false
@@ -16,7 +16,7 @@ var idle_time = 1
 var crouch_time = 0.5
 var recover_time = 1
 
-var fire_rate = .8
+var fire_rate = 1.15
 var can_fire
 var run = false
 

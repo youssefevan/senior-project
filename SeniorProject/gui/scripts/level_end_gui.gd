@@ -4,6 +4,9 @@ onready var sfx = get_node("/root/Audio")
 
 # setting score manually is bad
 
+func _ready():
+	visible = false
+
 func _process(delta):
 	#if get_tree().current_scene("Level5"):
 	#	$VBoxContainer/NextBtn.hide()

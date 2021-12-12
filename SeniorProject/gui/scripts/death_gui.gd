@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	visible = false
+
 func _process(delta):
 	if Global.player_dead == true:
 		self.visible = true

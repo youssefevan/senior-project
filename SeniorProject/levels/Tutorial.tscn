@@ -189,10 +189,10 @@ position = Vector2( 240, 112 )
 position = Vector2( 228, 112 )
 
 [node name="Coin4" parent="Pickups/Coins" instance=ExtResource( 11 )]
-position = Vector2( 568, 96 )
+position = Vector2( 568, 88 )
 
 [node name="Coin5" parent="Pickups/Coins" instance=ExtResource( 11 )]
-position = Vector2( 568, 88 )
+position = Vector2( 568, 80 )
 
 [node name="Coin6" parent="Pickups/Coins" instance=ExtResource( 11 )]
 position = Vector2( 784, 48 )
