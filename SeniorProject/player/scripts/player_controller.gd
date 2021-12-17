@@ -16,6 +16,8 @@ var checkpoint
 const exp_scene1 = preload("res://effects/Explosion2.tscn")
 const exp_scene2 = preload("res://effects/Explosion1.tscn")
 
+onready var sfx = get_node("/root/Audio")
+
 onready var animator = $Animator
 onready var sprite = $Sprite
 onready var jump_sfx = $JumpSFX
@@ -39,7 +41,7 @@ var accel = 0
 var fric = 0
 
 var hitstun = false
-var hitstun_time = .3
+var hitstun_time = .15
 
 export (int) var health = 4
 var is_hurt = false
@@ -57,6 +59,7 @@ var cr_pos = Vector2()
 var dead_pos = Vector2()
 
 func _ready():
+	hitstun = false
 	Global.player = self
 	$ShaderAnimator.play("default")
 	spawn = get_node(spawn_nodepath)
@@ -74,8 +77,8 @@ func apply_gravity(delta):
 	velocity.y += grav * delta
 
 func apply_movement():
-	
 	if hitstun == true:
+		var temp = velocity
 		velocity = Vector2.ZERO
 	else:
 		velocity = velocity
@@ -123,6 +126,7 @@ func _on_Hurtbox_area_entered(area):
 func hit():
 	if is_hurt == false:
 		$ShaderAnimator.play("hit")
+		sfx.phit.play()
 		health -= 1
 		print(health)
 		
@@ -169,4 +173,5 @@ func die():
 
 func _on_KillzoneDetection_body_entered(body):
 	if body.get_collision_layer() == 512:
+		sfx.phit.play()
 		die()

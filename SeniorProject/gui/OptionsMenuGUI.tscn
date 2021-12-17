@@ -4,6 +4,7 @@
 [ext_resource path="res://gui/scripts/options_menu_gui.gd" type="Script" id=2]
 
 [node name="OptionsMenuGUI" type="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
@@ -12,27 +13,59 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 256.0
+margin_bottom = 144.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="."]
 margin_left = 36.0
-margin_top = 53.0
+margin_top = 16.0
 margin_right = 220.0
-margin_bottom = 76.0
-text = "Whoops!
-There are no options yet"
+margin_bottom = 26.0
+text = "Options"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 36.0
+margin_top = 51.0
+margin_right = 220.0
+margin_bottom = 61.0
+text = "Audio"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BackBtn" type="Button" parent="."]
-margin_left = 108.0
-margin_top = 82.0
-margin_right = 148.0
-margin_bottom = 94.0
+margin_left = 11.0
+margin_top = 124.0
+margin_right = 51.0
+margin_bottom = 136.0
 text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 84.0
+margin_top = 64.0
+margin_right = 172.0
+margin_bottom = 80.0
+min_value = 0.01
+max_value = 1.0
+step = 0.01
+value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [connection signal="button_down" from="BackBtn" to="." method="_on_BackBtn_button_down"]
 [connection signal="button_up" from="BackBtn" to="." method="_on_BackBtn_button_up"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

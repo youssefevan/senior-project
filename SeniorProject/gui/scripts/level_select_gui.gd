@@ -74,4 +74,4 @@ func _on_Lv5Btn_button_down():
 	sfx.select.play()
 
 func _on_BackBtn_button_down():
-	sfx.unpause.play()
+	sfx.select.play()

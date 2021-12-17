@@ -16,7 +16,7 @@ func _on_QuitBtn_button_down():
 	pass
 
 func _on_OptBtn_button_up():
-	get_tree().change_scene("res://levels/OptionsMenu.tscn")
+	Global.show_options = true
 
 func _on_OptBtn_button_down():
 	sfx.select.play()

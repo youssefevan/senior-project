@@ -101,7 +101,7 @@ tracks/0/keys = {
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 5 )
-shader_param/redden = false
+shader_param/redden = true
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 3, 6 )

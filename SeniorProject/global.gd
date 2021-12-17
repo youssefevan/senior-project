@@ -15,3 +15,5 @@ var level2_unlock = true
 var level3_unlock = true
 var level4_unlock = true
 var level5_unlock = true
+
+var show_options = false

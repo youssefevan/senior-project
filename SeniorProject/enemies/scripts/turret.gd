@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+onready var sfx = get_node("/root/Audio")
 const exp_scene = preload("res://effects/Explosion1.tscn")
 export var ammo_type = preload("res://ammo/EAmmo0.tscn")
 export (NodePath) var target_nodepath = null
@@ -7,7 +8,7 @@ var target_node
 var target_pos
 var can_fire
 var fire_rate = .8
-var health = 5
+var health = 4
 
 var points = 550
 
@@ -51,6 +52,7 @@ func die():
 	call_deferred("free")
 
 func explode():
+	sfx.edeath.play()
 	var explosion = exp_scene.instance()
 	explosion.position = position
 	get_tree().get_root().call_deferred("add_child", explosion)

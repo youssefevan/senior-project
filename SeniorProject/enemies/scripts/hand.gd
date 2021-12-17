@@ -4,12 +4,14 @@ const exp_scene = preload("res://effects/Explosion1.tscn")
 const antic_scene = preload("res://effects/Rumble0.tscn")
 const jump_scene = preload("res://effects/HandExplosion0.tscn")
 
+onready var sfx = get_node("/root/Audio")
+
 var jump_force = 175
 var grav = 1000
 
 var player_detected = false
 var grab_anim_time = 0.3
-var health = 4
+var health = 3
 
 var velocity = Vector2()
 
@@ -75,6 +77,7 @@ func hit():
 	$ShaderAnimator.play("flash")
 
 func die():
+	sfx.edeath.play()
 	Global.score += points
 	explode()
 	call_deferred("free")

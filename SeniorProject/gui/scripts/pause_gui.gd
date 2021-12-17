@@ -35,3 +35,15 @@ func _on_RestartBtn_button_up():
 	get_tree().paused = not get_tree().paused
 	pause_state = false
 	Global.score = 0
+
+func _on_OptDtn_button_down():
+	sfx.select.play()
+
+func _on_MenuBtn_button_down():
+	sfx.select.play()
+
+func _on_OptDtn_button_up():
+	Global.show_options = true
+
+func _on_RestartBtn_button_down():
+	sfx.select.play()

@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var sfx = get_node("/root/Audio")
+
 var fire_rate = .25
 var can_fire = true
 export var ammo_type = preload("res://ammo/Ammo0.tscn")
@@ -20,6 +22,7 @@ func _process(delta):
 
 func shoot():
 	var projectile = ammo_type.instance()
+	sfx.shoot.play()
 	projectile.position = $Muzzle.global_position
 	projectile.rotation = global_rotation
 	get_tree().get_root().call_deferred("add_child", projectile)

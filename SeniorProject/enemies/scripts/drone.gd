@@ -9,6 +9,8 @@ var rot_speed = 500
 
 var points = 120
 
+onready var sfx = get_node("/root/Audio")
+
 func _ready():
 	var mat = get_node("Sprite").get_material().duplicate(true)
 	get_node("Sprite").set_material(mat)
@@ -38,6 +40,7 @@ func die():
 	call_deferred("free")
 
 func explode():
+	sfx.edeath.play()
 	var explosion = exp_scene.instance()
 	explosion.position = position
 	get_tree().get_root().call_deferred("add_child", explosion)

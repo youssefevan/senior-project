@@ -3,6 +3,8 @@ extends KinematicBody2D
 const antic_scene = preload("res://effects/Rumble0.tscn")
 const exp_scene = preload("res://effects/Explosion1.tscn")
 
+onready var sfx = get_node("/root/Audio")
+
 var player_detected = false
 var velocity = Vector2()
 var grav = 0
@@ -39,6 +41,7 @@ func hit():
 	call_deferred("free")
 
 func explode():
+	sfx.edeath.play()
 	var explosion = exp_scene.instance()
 	explosion.position = position
 	get_tree().get_root().call_deferred("add_child", explosion)

@@ -3,6 +3,8 @@ extends KinematicBody2D
 export var ammo_type = preload("res://ammo/EAmmo0.tscn")
 const exp_scene = preload("res://effects/Explosion2.tscn")
 
+onready var sfx = get_node("/root/Audio")
+
 var grav = 1000
 var velocity = Vector2.ZERO
 var jump_force = 340
