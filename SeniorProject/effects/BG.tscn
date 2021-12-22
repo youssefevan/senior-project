@@ -23,6 +23,7 @@ color = Color( 1, 0, 0, 1 )
 color_ramp = SubResource( 3 )
 
 [node name="BG" type="Particles2D"]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
 position = Vector2( 264, 72 )
 amount = 512
 lifetime = 6.0

@@ -20,6 +20,7 @@ scale_curve = SubResource( 2 )
 color = Color( 1, 0, 0, 1 )
 
 [node name="Rumble0" type="Particles2D"]
+modulate = Color( 1.13, 1.13, 1.13, 1 )
 emitting = false
 amount = 16
 lifetime = 0.3

@@ -28,6 +28,7 @@ tracks/0/keys = {
 radius = 4.5
 
 [node name="Spikes" type="StaticBody2D"]
+modulate = Color( 1.13, 1.13, 1.13, 1 )
 collision_layer = 8
 collision_mask = 87
 script = ExtResource( 2 )

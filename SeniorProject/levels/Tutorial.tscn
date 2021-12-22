@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://environment/tilesets/Tiles1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/camera_room/CameraRoom.tscn" type="PackedScene" id=2]
@@ -18,12 +18,15 @@
 [ext_resource path="res://gui/LevelEndGUI.tscn" type="PackedScene" id=16]
 [ext_resource path="res://levels/scripts/tutorial.gd" type="Script" id=17]
 [ext_resource path="res://player/Spawn.tscn" type="PackedScene" id=18]
+[ext_resource path="res://WorldEnvironment.tscn" type="PackedScene" id=19]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 17 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="WorldEnvironment" parent="." instance=ExtResource( 19 )]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -113,19 +116,6 @@ tile_data = PoolIntArray( -1179609, 4, 0, -1179608, 4, 0, -1179607, 4, 0, -11796
 [node name="LavaTiles" parent="Tilesets" instance=ExtResource( 5 )]
 tile_data = PoolIntArray( 1048645, 1, 0, 1048646, 1, 0, 1048647, 1, 0, 1048648, 1, 0, 1114181, 0, 0, 1114182, 0, 0, 1114183, 0, 0, 1114184, 0, 0 )
 
-[node name="Player+Cam" type="Node2D" parent="."]
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
-
-[node name="Player" parent="Player+Cam" instance=ExtResource( 3 )]
-spawn_nodepath = NodePath("../../SpawnLocations/Spawn")
-checkpoint_nodepath = NodePath("../../SpawnLocations/Spawn")
-
-[node name="Camera" parent="Player+Cam" instance=ExtResource( 4 )]
-target_nodepath = NodePath("../Player")
-
 [node name="Enemies" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
@@ -171,6 +161,19 @@ position = Vector2( 844, 44 )
 
 [node name="Spikes7" parent="Spike" instance=ExtResource( 7 )]
 position = Vector2( 852, 44 )
+
+[node name="Player+Cam" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Player" parent="Player+Cam" instance=ExtResource( 3 )]
+spawn_nodepath = NodePath("../../SpawnLocations/Spawn")
+checkpoint_nodepath = NodePath("../../SpawnLocations/Spawn")
+
+[node name="Camera" parent="Player+Cam" instance=ExtResource( 4 )]
+target_nodepath = NodePath("../Player")
 
 [node name="Pickups" type="Node2D" parent="."]
 __meta__ = {

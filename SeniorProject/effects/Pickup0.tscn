@@ -28,6 +28,7 @@ scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 
 [node name="Pickup0" type="Particles2D"]
+modulate = Color( 1.13, 1.13, 1.13, 1 )
 emitting = false
 amount = 10
 lifetime = 0.5

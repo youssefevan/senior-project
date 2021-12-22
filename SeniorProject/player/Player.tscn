@@ -116,6 +116,7 @@ extents = Vector2( 3.1, 6.1 )
 extents = Vector2( 4, 7 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
+modulate = Color( 1.13, 1.13, 1.13, 1 )
 collision/safe_margin = 0.01
 script = ExtResource( 3 )
 

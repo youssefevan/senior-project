@@ -22,6 +22,7 @@ scale_curve = SubResource( 2 )
 color = Color( 1, 0, 0, 1 )
 
 [node name="Explosion3" type="Particles2D"]
+modulate = Color( 1.13, 1.13, 1.13, 1 )
 emitting = false
 lifetime = 0.4
 one_shot = true

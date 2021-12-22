@@ -30,6 +30,7 @@ scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 
 [node name="Trail" type="Particles2D"]
+modulate = Color( 1.13, 1.13, 1.13, 1 )
 lifetime = 0.1
 local_coords = false
 process_material = SubResource( 5 )

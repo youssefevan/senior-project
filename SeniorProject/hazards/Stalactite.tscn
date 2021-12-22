@@ -19,6 +19,7 @@ extents = Vector2( 40, 52 )
 radius = 3.0
 
 [node name="Stalactite" type="KinematicBody2D"]
+modulate = Color( 1.13, 1.13, 1.13, 1 )
 collision_layer = 8
 collision_mask = 6
 script = ExtResource( 2 )

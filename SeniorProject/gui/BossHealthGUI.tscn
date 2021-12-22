@@ -4,6 +4,7 @@
 [ext_resource path="res://gui/scripts/boss_health_gui.gd" type="Script" id=2]
 
 [node name="BossHealthGUI" type="Control"]
+modulate = Color( 1.13, 1.13, 1.13, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
 rect_scale = Vector2( 1, -1 )

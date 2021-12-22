@@ -6,6 +6,7 @@
 
 [node name="MainMenuGUI" type="Control"]
 pause_mode = 2
+modulate = Color( 1.13, 1.13, 1.13, 1 )
 margin_right = 256.0
 margin_bottom = 144.0
 theme = ExtResource( 2 )

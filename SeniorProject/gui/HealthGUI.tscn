@@ -5,6 +5,7 @@
 [ext_resource path="res://gui/scripts/health_gui.gd" type="Script" id=3]
 
 [node name="HealthGUI" type="Control"]
+modulate = Color( 1.13, 1.13, 1.13, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
