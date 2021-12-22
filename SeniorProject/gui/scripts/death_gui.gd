@@ -1,5 +1,7 @@
 extends Control
 
+onready var sfx = get_node("/root/Audio")
+
 func _ready():
 	visible = false
 
@@ -19,5 +21,14 @@ func _on_MenuBtn_button_up():
 	Global.player_dead = false
 	Global.score = 0
 
-func _on_QuitBtn_button_up():
-	get_tree().quit()
+func _on_OptBtn_button_down():
+	sfx.select.play()
+
+func _on_OptBtn_button_up():
+	Global.show_options = true
+
+func _on_RetryBtn_button_down():
+	sfx.select.play()
+
+func _on_MenuBtn_button_down():
+	sfx.select.play()

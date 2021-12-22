@@ -74,6 +74,7 @@ func _on_Hurtbox_area_entered(area):
 		hit()
 
 func hit():
+	sfx.ahit.play()
 	$ShaderAnimator.play("flash")
 
 func die():

@@ -7,3 +7,5 @@ onready var oneup = $"1upSFX"
 onready var shoot = $"ShootSFX"
 onready var edeath = $EnemyDeathSFX
 onready var phit = $PlayerHitSFX
+onready var ahit = $AmmoHitSFX
+onready var coin = $CoinSFX

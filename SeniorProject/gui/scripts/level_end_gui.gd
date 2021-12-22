@@ -49,7 +49,7 @@ func _on_NextBtn_button_down():
 	sfx.select.play()
 
 func _on_MenuBtn_button_down():
-	sfx.unpause.play()
+	sfx.select.play()
 
 func _on_RestartBtn_button_down():
 	sfx.select.play()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://gui/theme_data/ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://gui/scripts/death_gui.gd" type="Script" id=2]
+[ext_resource path="res://gui/OptionsMenuGUI.tscn" type="PackedScene" id=3]
 
 [node name="DeathGUI" type="Control"]
 pause_mode = 2
@@ -76,5 +77,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="OptionsMenuGUI" parent="." instance=ExtResource( 3 )]
+
+[connection signal="button_down" from="VBoxContainer/RetryBtn" to="." method="_on_RetryBtn_button_down"]
 [connection signal="button_up" from="VBoxContainer/RetryBtn" to="." method="_on_RetryBtn_button_up"]
+[connection signal="button_down" from="VBoxContainer/OptBtn" to="." method="_on_OptBtn_button_down"]
+[connection signal="button_up" from="VBoxContainer/OptBtn" to="." method="_on_OptBtn_button_up"]
+[connection signal="button_down" from="VBoxContainer/MenuBtn" to="." method="_on_MenuBtn_button_down"]
 [connection signal="button_up" from="VBoxContainer/MenuBtn" to="." method="_on_MenuBtn_button_up"]

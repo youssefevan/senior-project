@@ -32,6 +32,7 @@ func _on_Hutbox_area_entered(area):
 		hit()
 
 func hit():
+	sfx.ahit.play()
 	$ShaderAnimator.play("flash")
 
 func die():

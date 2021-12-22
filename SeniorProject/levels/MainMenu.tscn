@@ -18,7 +18,7 @@ margin_top = 8.0
 margin_right = 152.0
 margin_bottom = 44.0
 theme = ExtResource( 3 )
-text = "Beta Build 1.0.1
+text = "Beta Build 1.0.3
 Audio Not Finished
 All Levels Unlocked"
 __meta__ = {
@@ -26,5 +26,6 @@ __meta__ = {
 }
 
 [node name="OptionsMenuGUI" parent="UI" instance=ExtResource( 4 )]
+visible = false
 
 [node name="BG" parent="." instance=ExtResource( 2 )]

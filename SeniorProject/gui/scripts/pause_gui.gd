@@ -9,13 +9,14 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
-		pause_state = not get_tree().paused
-		get_tree().paused = not get_tree().paused
+		if Global.player_dead == false && Global.show_options == false && Global.level_end == false:
+			pause_state = not get_tree().paused
+			get_tree().paused = not get_tree().paused
 		
-		if pause_state == true:
-			sfx.pause.play()
-		if pause_state == false:
-			sfx.unpause.play()
+			if pause_state == true:
+				sfx.pause.play()
+			if pause_state == false:
+				sfx.unpause.play()
 	
 	visible = pause_state
 
