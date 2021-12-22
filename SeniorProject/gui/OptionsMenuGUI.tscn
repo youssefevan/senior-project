@@ -33,12 +33,21 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 36.0
-margin_top = 51.0
-margin_right = 220.0
-margin_bottom = 61.0
+margin_left = 56.0
+margin_top = 35.0
+margin_right = 200.0
+margin_bottom = 45.0
 text = "Audio"
-align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 56.0
+margin_top = 51.0
+margin_right = 200.0
+margin_bottom = 61.0
+text = "Bloom"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,10 +63,10 @@ __meta__ = {
 }
 
 [node name="HSlider" type="HSlider" parent="."]
-margin_left = 84.0
-margin_top = 64.0
-margin_right = 172.0
-margin_bottom = 80.0
+margin_left = 106.0
+margin_top = 32.0
+margin_right = 194.0
+margin_bottom = 48.0
 theme = ExtResource( 1 )
 min_value = 0.01
 max_value = 1.0
@@ -67,6 +76,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 182.0
+margin_top = 49.0
+margin_right = 200.0
+margin_bottom = 67.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="button_down" from="BackBtn" to="." method="_on_BackBtn_button_down"]
 [connection signal="button_up" from="BackBtn" to="." method="_on_BackBtn_button_up"]
 [connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]

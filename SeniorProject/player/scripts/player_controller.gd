@@ -30,8 +30,8 @@ const MAX_FALL_SPEED = 250
 
 const GROUND_ACCEL = 850
 const AIR_ACCEL = 555
-const GROUND_FRIC = .123
-const AIR_FRIC = .01
+const GROUND_FRIC = 10
+const AIR_FRIC = 1
 const MIN_JUMP_HEIGHT = 90
 
 var grav = 600
@@ -93,7 +93,7 @@ func handle_move_input(delta):
 		velocity.x += x_input * accel * delta
 		velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
 	else:
-		velocity.x = lerp(velocity.x, 0, fric)
+		velocity.x = lerp(velocity.x, 0, fric * delta)
 
 #func update_grounded():
 #	var was_grounded = is_grounded

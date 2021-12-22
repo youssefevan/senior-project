@@ -7,6 +7,7 @@ func _ready():
 
 func _process(delta):
 	$HSlider.value = Global.SFX_vol
+	$CheckBox.pressed = Global.bloom
 	
 	if Global.show_options == false:
 		visible = false
@@ -22,3 +23,9 @@ func _on_BackBtn_button_down():
 func _on_HSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(value))
 	Global.SFX_vol = value
+
+func _on_CheckBox_toggled(button_pressed):
+	if button_pressed == true:
+		Global.bloom = true
+	elif button_pressed == false:
+		Global.bloom = false
