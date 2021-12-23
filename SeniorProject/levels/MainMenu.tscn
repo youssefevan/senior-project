@@ -21,7 +21,7 @@ margin_top = 8.0
 margin_right = 152.0
 margin_bottom = 44.0
 theme = ExtResource( 3 )
-text = "Beta Build 1.0.5
+text = "Beta Build 1.0.6
 Audio Not Finished
 All Levels Unlocked"
 __meta__ = {

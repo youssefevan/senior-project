@@ -104,6 +104,7 @@ func crouch():
 	jump()
 
 func jump():
+	sfx.bjump.play()
 	velocity.y = -jump_force
 	velocity.x = player_dir * dir_multiplier
 	jumping = true
@@ -117,6 +118,7 @@ func recover():
 	idle()
 
 func shoot():
+	sfx.bshoot.play()
 	var ammo = ammo_type.instance()
 	ammo.position = $Barrel/Sprite/Muzzle.global_position
 	ammo.rotation = $Barrel/Sprite/Muzzle.global_rotation

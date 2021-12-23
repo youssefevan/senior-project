@@ -9,3 +9,6 @@ onready var edeath = $EnemyDeathSFX
 onready var phit = $PlayerHitSFX
 onready var ahit = $AmmoHitSFX
 onready var coin = $CoinSFX
+onready var rumble = $RumbleSFX
+onready var bjump = $BossJumpSFX
+onready var bshoot = $BossShootSFX

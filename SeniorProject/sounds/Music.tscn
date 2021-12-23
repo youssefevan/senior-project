@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sounds/music/level_end.wav" type="AudioStream" id=1]
+[ext_resource path="res://sounds/scripts/music.gd" type="Script" id=2]
+
+[node name="Music" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="LevelEnd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )

@@ -31,6 +31,8 @@ func _on_Anticipation_area_entered(area):
 func _on_PlayerDetection_area_entered(area):
 	if area.get_collision_layer() == 1:
 		player_detected = true
+		if grav == 0:
+			sfx.rumble.play()
 
 func _on_CollisionDetection_body_entered(body):
 	if body.get_collision_layer() == 1 or body.get_collision_layer() == 2  or body.get_collision_layer() == 4 or body.get_collision_layer() == 512:

@@ -1,7 +1,9 @@
 extends Area2D
+onready var music = get_node("/root/Music")
 
 func _on_Endflag_body_entered(body):
 	if body.get_collision_layer() == 1:
+		music.end.play()
 		match Global.level:
 			0:
 				Global.level1_unlock = true

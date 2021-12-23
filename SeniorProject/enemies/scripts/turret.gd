@@ -33,6 +33,7 @@ func _process(delta):
 		die()
 
 func shoot():
+	sfx.bshoot.play()
 	var ammo = ammo_type.instance()
 	ammo.position = $Barrel/Sprite/Muzzle.global_position
 	ammo.rotation = $Barrel/Sprite/Muzzle.global_rotation

@@ -49,6 +49,7 @@ func _on_DetectAnticipation_area_entered(area):
 
 func _on_PlayerDetection_area_entered(area):
 	if area.get_collision_layer() == 1 and area.get_collision_mask() != 32:
+		sfx.rumble.play()
 		$Sprite.frame = 1
 		player_detected = true
 		if is_on_floor():

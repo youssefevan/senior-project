@@ -83,7 +83,7 @@ func apply_movement():
 	else:
 		velocity = velocity
 	velocity = move_and_slide(velocity, Vector2.UP)
-	#print(Global.score)
+	#(Global.score)
 
 func handle_move_input(delta):
 	x_input = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -128,7 +128,7 @@ func hit():
 		$ShaderAnimator.play("hit")
 		sfx.phit.play()
 		health -= 1
-		print(health)
+		#print(health)
 		
 		if health <= 0:
 			die()
@@ -166,7 +166,7 @@ func die():
 	$Collider.call_deferred("free")
 	$Hurtbox.call_deferred("free")
 	
-	print("dead")
+	#print("dead")
 
 #func _on_CameraRoom_area_exited(area):
 	#pass # Replace with function body.
