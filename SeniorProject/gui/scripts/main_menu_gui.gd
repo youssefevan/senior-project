@@ -12,14 +12,10 @@ func _on_StartBtn_button_up():
 	get_tree().change_scene("res://levels/LevelSelect.tscn")
 
 func _on_QuitBtn_button_up():
-	get_tree().quit()
+	Global.quit = true
 
 func _on_StartBtn_button_down():
 	sfx.select.play()
-
-func _on_QuitBtn_button_down():
-	#sfx.select.play()
-	pass
 
 func _on_OptBtn_button_up():
 	Global.show_options = true

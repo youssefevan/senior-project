@@ -19,10 +19,9 @@ layer = 2
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 152.0
-margin_bottom = 31.0
+margin_bottom = 18.0
 theme = ExtResource( 3 )
-text = "Beta Build 1.0.7
-All Levels Unlocked"
+text = "Beta Build 1.0.8"
 __meta__ = {
 "_edit_use_anchors_": false
 }
