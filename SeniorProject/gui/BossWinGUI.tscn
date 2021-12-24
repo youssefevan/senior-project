@@ -12,14 +12,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 256.0
+margin_bottom = 144.0
+color = Color( 0, 0, 0, 0.333333 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 97.0
+margin_top = 44.0
+margin_right = 158.0
+margin_bottom = 54.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="."]
-margin_left = 36.0
-margin_top = 32.0
-margin_right = 220.0
-margin_bottom = 68.0
+margin_left = 37.0
+margin_top = 44.0
+margin_right = 221.0
+margin_bottom = 67.0
 text = "You Win!
-Thanks for participating
-in the Beta"
+"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

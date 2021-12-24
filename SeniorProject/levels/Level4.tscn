@@ -185,12 +185,12 @@ position = Vector2( 536, 328 )
 rotation = 3.14159
 target_nodepath = NodePath("../../../Player+Cam/Player")
 
-[node name="Turret2" parent="Enemies/Turrets" instance=ExtResource( 17 )]
-position = Vector2( 1048, 272 )
-target_nodepath = NodePath("../../../Player+Cam/Player")
-
 [node name="Turret3" parent="Enemies/Turrets" instance=ExtResource( 17 )]
 position = Vector2( 1340, 224 )
+target_nodepath = NodePath("../../../Player+Cam/Player")
+
+[node name="Turret2" parent="Enemies/Turrets" instance=ExtResource( 17 )]
+position = Vector2( 1048, 272 )
 target_nodepath = NodePath("../../../Player+Cam/Player")
 
 [node name="Stalactites" type="Node2D" parent="Enemies"]

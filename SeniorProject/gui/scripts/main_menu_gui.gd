@@ -2,6 +2,12 @@ extends Control
 
 onready var sfx = get_node("/root/Audio")
 
+func _ready():
+	pass
+
+func _process(delta):
+	pass
+
 func _on_StartBtn_button_up():
 	get_tree().change_scene("res://levels/LevelSelect.tscn")
 

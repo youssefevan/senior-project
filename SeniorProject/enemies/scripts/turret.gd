@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends KinematicBody2D
 
 onready var sfx = get_node("/root/Audio")
 const exp_scene = preload("res://effects/Explosion1.tscn")

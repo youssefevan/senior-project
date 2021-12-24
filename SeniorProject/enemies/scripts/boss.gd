@@ -110,6 +110,7 @@ func jump():
 	jumping = true
 
 func recover():
+	sfx.bland.play()
 	jumping = false
 	velocity.x = 0
 	recovering = true
@@ -135,6 +136,7 @@ func hit():
 	$ShaderAnimator.play("flash")
 
 func die():
+	sfx.edeath.play()
 	Global.boss_dead = true
 	explode()
 	call_deferred("free")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://sounds/gui/select.wav" type="AudioStream" id=1]
 [ext_resource path="res://sounds/gui/pause.wav" type="AudioStream" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://sounds/enemies/rumble.wav" type="AudioStream" id=12]
 [ext_resource path="res://sounds/enemies/boss/boss_jump.wav" type="AudioStream" id=13]
 [ext_resource path="res://sounds/enemies/boss/boss_shoot.wav" type="AudioStream" id=14]
+[ext_resource path="res://sounds/enemies/boss/boss_land.wav" type="AudioStream" id=15]
 
 [node name="Audio" type="Node2D"]
 pause_mode = 2
@@ -21,48 +22,67 @@ script = ExtResource( 5 )
 
 [node name="SelectSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+bus = "SFX"
 
 [node name="PauseSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+bus = "SFX"
 
 [node name="UnpauseSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+bus = "SFX"
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -6.0
+bus = "SFX"
 
 [node name="1upSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -7.0
+bus = "SFX"
 
 [node name="ShootSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -7.0
+bus = "SFX"
 
 [node name="EnemyDeathSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -5.0
+bus = "SFX"
 
 [node name="PlayerHitSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = -4.0
+bus = "SFX"
 
 [node name="AmmoHitSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 volume_db = -7.0
+bus = "SFX"
 
 [node name="CoinSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -4.0
+bus = "SFX"
 
 [node name="RumbleSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 volume_db = -4.0
+bus = "SFX"
 
 [node name="BossJumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 volume_db = -2.0
+bus = "SFX"
 
 [node name="BossShootSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
-volume_db = -5.0
+volume_db = -6.0
+bus = "SFX"
+
+[node name="BossLandSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -2.0
+bus = "SFX"

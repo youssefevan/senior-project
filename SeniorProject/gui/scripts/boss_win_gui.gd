@@ -9,6 +9,7 @@ func _process(delta):
 	if Global.boss_dead == true:
 		print(Global.boss_dead)
 		visible = true
+		get_tree().paused = true
 
 func _on_Button_button_down():
 	sfx.select.play()

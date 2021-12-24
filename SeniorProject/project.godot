@@ -34,6 +34,7 @@ window/stretch/aspect="keep"
 
 "anti aliasing"=false
 anti=false
+bus=false
 
 [importer_defaults]
 

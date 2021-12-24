@@ -1,5 +1,7 @@
 extends "res://state_machine.gd"
 
+onready var sfx = get_node("/root/Audio")
+
 func _ready():
 	add_state("idle")
 	add_state("run")
@@ -44,8 +46,9 @@ func state_logic(delta):
 		if parent.jumpWasPressed == true:
 		# allow player to jump
 			parent.velocity.y = -parent.JUMP_FORCE
-			if !parent.jump_sfx.playing:
-				parent.jump_sfx.play()
+			
+			if !sfx.jump.playing:
+				sfx.jump.play()
 	
 	# sprite flipping
 	if parent.velocity.x > 0:

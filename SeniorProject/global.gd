@@ -18,4 +18,6 @@ var level5_unlock = true
 
 var show_options = false
 var SFX_vol = 1
+var music_vol = 1
 var bloom = true
+var fullscreen = true
