@@ -5,3 +5,4 @@ func _ready():
 	Global.boss_trigger = false
 	Global.boss_dead = false
 	#Global.show_mouse = false
+	Global.previous_scene = "level5"

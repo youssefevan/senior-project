@@ -3,13 +3,21 @@ extends Control
 onready var sfx = get_node("/root/Audio")
 
 var pause_state = false
+var enabled
 
 func _ready():
 	pause_state = false
 
 func _process(delta):
+	if visible:
+		if !enabled:
+			$VBoxContainer/ContBtn.call_deferred("grab_focus")
+			enabled = true
+	else:
+		enabled = false
+	
 	if Input.is_action_just_pressed("pause"):
-		if Global.player_dead == false && Global.show_options == false && Global.level_end == false:
+		if Global.player_dead == false && Global.level_end == false:
 			pause_state = not get_tree().paused
 			get_tree().paused = not get_tree().paused
 		
@@ -44,7 +52,7 @@ func _on_MenuBtn_button_down():
 	sfx.select.play()
 
 func _on_OptDtn_button_up():
-	Global.show_options = true
+	get_tree().change_scene("res://levels/OptionsMenu.tscn")
 
 func _on_RestartBtn_button_down():
 	sfx.select.play()

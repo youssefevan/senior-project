@@ -149,6 +149,10 @@ position = Vector2( 688, 264 )
 position = Vector2( 1040, 16 )
 target_nodepath = NodePath("../../Player+Camera/Player")
 
+[node name="Turret2" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 147, 94 )
+target_nodepath = NodePath("../../Player+Camera/Player")
+
 [node name="Boss" parent="." instance=ExtResource( 14 )]
 position = Vector2( 912, 592 )
 target_nodepath = NodePath("../Player+Camera/Player")

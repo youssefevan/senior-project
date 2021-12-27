@@ -2,12 +2,27 @@ extends Control
 
 onready var sfx = get_node("/root/Audio")
 
+var enabled
+
 func _ready():
 	visible = false
 
 func _process(delta):
+	if visible:
+		if !enabled:
+			$VBoxContainer/RetryBtn.call_deferred("grab_focus")
+			enabled = true
+	else:
+		enabled = false
+	
 	if Global.player_dead == true:
 		self.visible = true
+		
+		if Input.is_action_pressed("restart"):
+			get_tree().reload_current_scene()
+			Global.player_dead = false
+			Global.score = 0
+		
 	elif Global.player_dead == false:
 		self.visible = false
 
@@ -25,7 +40,7 @@ func _on_OptBtn_button_down():
 	sfx.select.play()
 
 func _on_OptBtn_button_up():
-	Global.show_options = true
+	get_tree().change_scene("res://levels/OptionsMenu.tscn")
 
 func _on_RetryBtn_button_down():
 	sfx.select.play()

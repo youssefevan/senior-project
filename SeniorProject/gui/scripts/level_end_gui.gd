@@ -1,15 +1,18 @@
 extends Control
 
 onready var sfx = get_node("/root/Audio")
-
-# setting score manually is bad
+var enabled
 
 func _ready():
 	visible = false
 
 func _process(delta):
-	#if get_tree().current_scene("Level5"):
-	#	$VBoxContainer/NextBtn.hide()
+	if visible:
+		if !enabled:
+			$VBoxContainer/NextBtn.call_deferred("grab_focus")
+			enabled = true
+	else:
+		enabled = false
 	
 	if Global.level_end == true:
 		self.visible = true

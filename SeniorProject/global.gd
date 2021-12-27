@@ -25,6 +25,9 @@ var SFX_vol = 1
 var music_vol = 1
 var bloom = true
 var fullscreen = true
+var show_mouse = true
+
+var previous_scene = ""
 
 var file = File.new()
 
@@ -46,8 +49,21 @@ func _ready():
 			fullscreen = load_data.fullscreen
 			SFX_vol = load_data.sfx
 			music_vol = load_data.music
+			show_mouse = load_data.mouse
 			
 			file.close()
+	else:
+		level1_unlock = false
+		level2_unlock = false
+		level3_unlock = false
+		level4_unlock = false
+		level5_unlock = false
+		
+		SFX_vol = 1
+		music_vol = 1
+		bloom = true
+		fullscreen = true
+		show_mouse = false
 	
 
 func _process(delta):
@@ -61,7 +77,8 @@ func _process(delta):
 			"bloom": bloom,
 			"fullscreen": fullscreen,
 			"sfx": SFX_vol,
-			"music": music_vol
+			"music": music_vol,
+			"mouse": show_mouse
 		}
 		
 		var dir = Directory.new()
@@ -72,5 +89,13 @@ func _process(delta):
 		if error == OK:
 			file.store_var(data)
 			file.close()
-		
+			
 		get_tree().quit()
+		
+	
+	if show_mouse == true:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		Input.set_mouse_mode(!Input.MOUSE_MODE_CAPTURED)
+	elif show_mouse == false:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

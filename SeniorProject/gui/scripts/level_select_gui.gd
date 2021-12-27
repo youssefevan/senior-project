@@ -4,6 +4,7 @@ onready var sfx = get_node("/root/Audio")
 
 func _ready():
 	Global.checkpoint_reached = false
+	$VBoxContainer/TutBtn.grab_focus()
 
 # just a mess
 

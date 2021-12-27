@@ -3,18 +3,14 @@ extends Control
 onready var sfx = get_node("/root/Audio")
 
 func _ready():
-	visible = false
+	$VBoxContainer/SFXslider.call_deferred("grab_focus")
 
 func _process(delta):
-	$HSlider.value = Global.SFX_vol
-	$HSlider2.value = Global.music_vol
-	$CheckBox.pressed = Global.bloom
-	$CheckBox2.pressed = Global.fullscreen
-	
-	if Global.show_options == false:
-		visible = false
-	elif Global.show_options == true:
-		visible = true
+	$VBoxContainer/SFXslider.value = Global.SFX_vol
+	$VBoxContainer/MusicSlider.value = Global.music_vol
+	$VBoxContainer/BloomToggle.pressed = Global.bloom
+	$VBoxContainer/FullscreenToggle.pressed = Global.fullscreen
+	$VBoxContainer/CursorToggle.pressed = Global.show_mouse
 	
 	if Global.fullscreen == true:
 		OS.window_fullscreen  = true
@@ -22,7 +18,10 @@ func _process(delta):
 		OS.window_fullscreen  = false
 
 func _on_BackBtn_button_up():
-	Global.show_options = false
+	#Global.save = true
+	match Global.previous_scene:
+		"main":
+			get_tree().change_scene("res://levels/MainMenu.tscn")
 
 func _on_BackBtn_button_down():
 	sfx.select.play()
@@ -49,3 +48,9 @@ func _on_CheckBox2_toggled(button_pressed):
 		Global.fullscreen = true
 	elif button_pressed == false:
 		Global.fullscreen = false
+
+func _on_CursorToggle_toggled(button_pressed):
+	if button_pressed == true:
+		Global.show_mouse = true
+	elif button_pressed == false:
+		Global.show_mouse = false
