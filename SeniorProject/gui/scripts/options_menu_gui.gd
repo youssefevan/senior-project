@@ -18,7 +18,7 @@ func _process(delta):
 		OS.window_fullscreen  = false
 
 func _on_BackBtn_button_up():
-	#Global.save = true
+	Global.save()
 	match Global.previous_scene:
 		"main":
 			get_tree().change_scene("res://levels/MainMenu.tscn")

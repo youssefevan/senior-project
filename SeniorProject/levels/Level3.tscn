@@ -455,9 +455,6 @@ position = Vector2( 292, 64 )
 [node name="1up" parent="Pickups" instance=ExtResource( 15 )]
 position = Vector2( 2848, -276 )
 
-[node name="1up2" parent="Pickups" instance=ExtResource( 15 )]
-position = Vector2( 2440, -224 )
-
 [node name="Endflag" parent="Pickups" instance=ExtResource( 17 )]
 position = Vector2( 3496, -268 )
 

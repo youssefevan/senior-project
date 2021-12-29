@@ -5,11 +5,12 @@ var enabled
 
 func _ready():
 	visible = false
-	if Global.level == 5:
-		$VBoxContainer/NextBtn.visible = false
 
 func _process(delta):
 	if visible:
+		if Global.level == 5:
+			$VBoxContainer/NextBtn.visible = false
+		
 		if !enabled:
 			if Global.level != 5:
 				$VBoxContainer/NextBtn.call_deferred("grab_focus")
@@ -20,6 +21,7 @@ func _process(delta):
 		enabled = false
 	
 	if Global.level_end == true:
+		Global.save()
 		self.visible = true
 	elif Global.level_end == false:
 		self.visible = false

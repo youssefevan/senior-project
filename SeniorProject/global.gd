@@ -71,30 +71,8 @@ func _ready():
 
 func _process(delta):
 	if quit == true:
-		data = {
-			"level1": level1_unlock,
-			"level2": level2_unlock,
-			"level3": level3_unlock,
-			"level4": level4_unlock,
-			"level5": level5_unlock,
-			"bloom": bloom,
-			"fullscreen": fullscreen,
-			"sfx": SFX_vol,
-			"music": music_vol,
-			"mouse": show_mouse
-		}
-		
-		var dir = Directory.new()
-		if !dir.dir_exists(Global.SAVE_DIR):
-			dir.make_dir_recursive(Global.SAVE_DIR)
-		
-		var error = file.open(Global.save_path, File.WRITE)
-		if error == OK:
-			file.store_var(data)
-			file.close()
-			
+		save()
 		get_tree().quit()
-		
 	
 	if show_mouse == true:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -102,3 +80,26 @@ func _process(delta):
 	elif show_mouse == false:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func save():
+	data = {
+		"level1": level1_unlock,
+		"level2": level2_unlock,
+		"level3": level3_unlock,
+		"level4": level4_unlock,
+		"level5": level5_unlock,
+		"bloom": bloom,
+		"fullscreen": fullscreen,
+		"sfx": SFX_vol,
+		"music": music_vol,
+		"mouse": show_mouse
+	}
+		
+	var dir = Directory.new()
+	if !dir.dir_exists(Global.SAVE_DIR):
+		dir.make_dir_recursive(Global.SAVE_DIR)
+	
+	var error = file.open(Global.save_path, File.WRITE)
+	if error == OK:
+		file.store_var(data)
+		file.close()
