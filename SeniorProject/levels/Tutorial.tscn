@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://environment/tilesets/Tiles1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/camera_room/CameraRoom.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://levels/scripts/tutorial.gd" type="Script" id=17]
 [ext_resource path="res://player/Spawn.tscn" type="PackedScene" id=18]
 [ext_resource path="res://WorldEnvironment.tscn" type="PackedScene" id=19]
+[ext_resource path="res://environment/tilesets/DetailTiles.tscn" type="PackedScene" id=20]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 17 )
@@ -36,11 +37,13 @@ pause_mode = 2
 [node name="ScoreGUI" parent="UI" instance=ExtResource( 8 )]
 
 [node name="DeathGUI" parent="UI" instance=ExtResource( 12 )]
+visible = false
 
 [node name="LevelEndGUI" parent="UI" instance=ExtResource( 16 )]
 visible = false
 
 [node name="PauseMenuGUI" parent="UI" instance=ExtResource( 9 )]
+visible = false
 
 [node name="TutorialText" type="Control" parent="."]
 margin_right = 40.0
@@ -115,6 +118,9 @@ tile_data = PoolIntArray( -1179609, 4, 0, -1179608, 4, 0, -1179607, 4, 0, -11796
 
 [node name="LavaTiles" parent="Tilesets" instance=ExtResource( 5 )]
 tile_data = PoolIntArray( 1048645, 1, 0, 1048646, 1, 0, 1048647, 1, 0, 1048648, 1, 0, 1114181, 0, 0, 1114182, 0, 0, 1114183, 0, 0, 1114184, 0, 0 )
+
+[node name="DetailTiles" parent="Tilesets" instance=ExtResource( 20 )]
+tile_data = PoolIntArray( -589754, 4, 0, -458703, 0, 0, -458662, 2, 0, -458661, 0, 0, -458655, 0, 0, -327618, 4, 0, -262067, 4, 0, -262066, 4, 0, 65636, 0, 0, 65637, 0, 0, 65649, 0, 0, 131080, 1, 0, 131081, 2, 0, 131154, 1, 0, 393311, 4, 0, 589928, 4, 0, 917544, 4, 0, 917545, 5, 0, 917546, 4, 0, 917572, 3, 0 )
 
 [node name="Enemies" type="Node2D" parent="."]
 __meta__ = {

@@ -8,3 +8,6 @@ func _process(delta):
 			visible = false
 		$HealthFull.rect_size.x = 2 * Global.boss.health
 		$HealthFull2.rect_size.x = 2 * Global.boss.health
+	
+	if Global.boss_beat == true:
+		visible = false

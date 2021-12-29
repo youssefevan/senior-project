@@ -34,6 +34,8 @@ var dir_multiplier = 100
 var health = 20
 var start
 
+var score = 2000
+
 func _ready():
 	var mat = get_node("Sprite").get_material().duplicate(true)
 	get_node("Sprite").set_material(mat)
@@ -66,7 +68,7 @@ func _process(delta):
 	$Barrel/Animator.play("shoot")
 	$Barrel.look_at(target_pos)
 	
-	if can_fire:
+	if can_fire and Global.boss_start:
 		shoot()
 		can_fire = false
 		yield(get_tree().create_timer(fire_rate), "timeout")
@@ -138,6 +140,7 @@ func hit():
 func die():
 	sfx.edeath.play()
 	Global.boss_dead = true
+	Global.score += score
 	explode()
 	call_deferred("free")
 

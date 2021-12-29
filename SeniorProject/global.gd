@@ -13,6 +13,9 @@ var level_end = false
 var level = 0
 var checkpoint_reached = false
 var boss_dead = false
+var boss_start = false
+var boss_beat = false
+var ending = false
 
 var level1_unlock = false
 var level2_unlock = false

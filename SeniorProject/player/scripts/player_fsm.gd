@@ -10,19 +10,19 @@ func _ready():
 	call_deferred("set_state", states.idle)
 
 func _input(event):
-	
-	if event.is_action_pressed("jump"):
-		parent.jumpWasPressed = true
-		parent.rememberJumpTime()
-		if parent.canCoyoteJump == true:
-			if parent.velocity.y > 0:
-				parent.velocity.y = -parent.JUMP_FORCE
-				parent.jump_sfx.play()
-	
-	# minimum jump height (variable jump heigth)
-	if state == states.jump:
-		if Input.is_action_just_released("jump") && (parent.velocity.y < -parent.MIN_JUMP_HEIGHT):
-			parent.velocity.y = -parent.MIN_JUMP_HEIGHT
+	if !parent.frozen:
+		if event.is_action_pressed("jump"):
+			parent.jumpWasPressed = true
+			parent.rememberJumpTime()
+			if parent.canCoyoteJump == true:
+				if parent.velocity.y > 0:
+					parent.velocity.y = -parent.JUMP_FORCE
+					parent.jump_sfx.play()
+		
+		# minimum jump height (variable jump heigth)
+		if state == states.jump:
+			if Input.is_action_just_released("jump") && (parent.velocity.y < -parent.MIN_JUMP_HEIGHT):
+				parent.velocity.y = -parent.MIN_JUMP_HEIGHT
 	
 
 func state_logic(delta):

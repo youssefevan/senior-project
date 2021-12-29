@@ -47,6 +47,8 @@ export (int) var health = 4
 var is_hurt = false
 var i_time = 1
 
+var frozen = false
+
 #var is_grounded
 #var facing = 0
 
@@ -86,14 +88,17 @@ func apply_movement():
 	#(Global.score)
 
 func handle_move_input(delta):
-	x_input = Input.get_action_strength("right") - Input.get_action_strength("left")
-	
-	# smooth in and out
-	if x_input != 0:
-		velocity.x += x_input * accel * delta
-		velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
+	if !frozen:
+		x_input = Input.get_action_strength("right") - Input.get_action_strength("left")
+		
+		# smooth in and out
+		if x_input != 0:
+			velocity.x += x_input * accel * delta
+			velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
+		else:
+			velocity.x = lerp(velocity.x, 0, fric * delta)
 	else:
-		velocity.x = lerp(velocity.x, 0, fric * delta)
+		velocity.x = 50
 
 #func update_grounded():
 #	var was_grounded = is_grounded
@@ -120,8 +125,32 @@ func _on_CameraRoomDetector_area_entered(area):
 		Global.boss_trigger = true
 
 func _on_Hurtbox_area_entered(area):
+	if area.get_collision_layer() == 8192:
+		if Global.boss_trigger == false:
+			boss_start()
+	
+	if area.get_collision_layer() == 16384:
+		Global.boss_beat = true
+	
+	if area.get_collision_layer() == 32768:
+		Global.ending = true
+		ending()
+	
 	if area.get_collision_layer() == 128 or area.get_collision_layer() == 64 or area.get_collision_layer() == 8:
 		hit()
+
+func boss_start():
+	frozen = true
+	yield(get_tree().create_timer(1), "timeout")
+	frozen = false
+	Global.boss_start = true
+
+func ending():
+	frozen = true
+	yield(get_tree().create_timer(1.2), "timeout")
+	frozen = false
+	Global.ending = false
+	Global.level_end = true
 
 func hit():
 	if is_hurt == false:

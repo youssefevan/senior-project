@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lava.png-20854f5778b44ac2e175508fb929632a.stex"
+path="res://.import/water_tiles.png-b467926fbbb3afb32fb7d2d48505c9b8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tiles/lava.png"
-dest_files=[ "res://.import/lava.png-20854f5778b44ac2e175508fb929632a.stex" ]
+source_file="res://sprites/tiles/water_tiles.png"
+dest_files=[ "res://.import/water_tiles.png-b467926fbbb3afb32fb7d2d48505c9b8.stex" ]
 
 [params]
 

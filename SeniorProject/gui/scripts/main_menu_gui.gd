@@ -7,6 +7,7 @@ var enabled
 func _ready():
 	$Menu/StartBtn.grab_focus()
 	Global.previous_scene = "main"
+	Global.boss_start = false
 	
 	if Global.fullscreen == true:
 		OS.window_fullscreen  = true
