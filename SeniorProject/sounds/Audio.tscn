@@ -34,55 +34,49 @@ bus = "SFX"
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -6.0
+volume_db = -3.0
 bus = "SFX"
 
 [node name="1upSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -7.0
 bus = "SFX"
 
 [node name="ShootSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = -7.0
+volume_db = -6.0
 bus = "SFX"
 
 [node name="EnemyDeathSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -5.0
 bus = "SFX"
 
 [node name="PlayerHitSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -4.0
 bus = "SFX"
 
 [node name="AmmoHitSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = -7.0
+volume_db = -2.0
 bus = "SFX"
 
 [node name="CoinSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-volume_db = -4.0
+volume_db = -3.0
 bus = "SFX"
 
 [node name="RumbleSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-volume_db = -4.0
 bus = "SFX"
 
 [node name="BossJumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
-volume_db = -2.0
 bus = "SFX"
 
 [node name="BossShootSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
-volume_db = -6.0
+volume_db = -4.0
 bus = "SFX"
 
 [node name="BossLandSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
-volume_db = -2.0
 bus = "SFX"

@@ -14,3 +14,6 @@ onready var rumble = $RumbleSFX
 onready var bjump = $BossJumpSFX
 onready var bshoot = $BossShootSFX
 onready var bland = $BossLandSFX
+
+#func _process(delta):
+#	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), Global.SFX_vol)

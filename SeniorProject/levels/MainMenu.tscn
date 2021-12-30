@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://gui/MainMenuGUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://effects/BG.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/theme_data/ui_theme.tres" type="Theme" id=3]
+[ext_resource path="res://gui/OptionsMenuGUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://WorldEnvironment.tscn" type="PackedScene" id=5]
 
 [node name="MainMenu" type="Node2D"]
@@ -20,9 +21,12 @@ margin_top = 8.0
 margin_right = 152.0
 margin_bottom = 18.0
 theme = ExtResource( 3 )
-text = "Beta Build 1.1.1"
+text = "Beta Build 1.1.2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="OptionsMenuGUI" parent="UI" instance=ExtResource( 4 )]
+visible = false
 
 [node name="BG" parent="." instance=ExtResource( 2 )]

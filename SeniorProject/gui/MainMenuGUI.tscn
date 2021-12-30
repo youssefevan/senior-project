@@ -53,5 +53,4 @@ stream = ExtResource( 3 )
 [connection signal="button_up" from="Menu/StartBtn" to="." method="_on_StartBtn_button_up"]
 [connection signal="button_down" from="Menu/OptBtn" to="." method="_on_OptBtn_button_down"]
 [connection signal="button_up" from="Menu/OptBtn" to="." method="_on_OptBtn_button_up"]
-[connection signal="button_down" from="Menu/QuitBtn" to="." method="_on_QuitBtn_button_down"]
 [connection signal="button_up" from="Menu/QuitBtn" to="." method="_on_QuitBtn_button_up"]

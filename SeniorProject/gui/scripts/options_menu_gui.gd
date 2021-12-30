@@ -26,31 +26,43 @@ func _on_BackBtn_button_up():
 func _on_BackBtn_button_down():
 	sfx.select.play()
 
-func _on_HSlider_value_changed(value):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(value))
-	Global.SFX_vol = value
-
 func _on_CheckBox_toggled(button_pressed):
 	if button_pressed == true:
 		Global.bloom = true
 	elif button_pressed == false:
 		Global.bloom = false
 
-func _on_CheckBox_button_down():
-	sfx.select.play()
-
-func _on_HSlider2_value_changed(value):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(value))
-	Global.music_vol = value
-
-func _on_CheckBox2_toggled(button_pressed):
-	if button_pressed == true:
-		Global.fullscreen = true
-	elif button_pressed == false:
-		Global.fullscreen = false
-
 func _on_CursorToggle_toggled(button_pressed):
 	if button_pressed == true:
 		Global.show_mouse = true
 	elif button_pressed == false:
 		Global.show_mouse = false
+
+func _on_SFXslider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(value))
+	Global.SFX_vol = value
+
+func _on_MusicSlider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(value))
+	Global.music_vol = value
+
+func _on_FullscreenToggle_toggled(button_pressed):
+	if button_pressed == true:
+		Global.fullscreen = true
+	elif button_pressed == false:
+		Global.fullscreen = false
+
+func _on_BloomToggle_toggled(button_pressed):
+	if button_pressed == true:
+		Global.bloom = true
+	elif button_pressed == false:
+		Global.bloom = false
+
+func _on_BloomToggle_button_down():
+	sfx.select.play()
+
+func _on_FullscreenToggle_button_down():
+	sfx.select.play()
+
+func _on_CursorToggle_button_down():
+	sfx.select.play()

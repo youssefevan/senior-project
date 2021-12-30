@@ -63,13 +63,16 @@ func _ready():
 		level5_unlock = false
 		
 		SFX_vol = 1
-		music_vol = 1
+		music_vol = .6
 		bloom = true
 		fullscreen = true
 		show_mouse = false
 	
 
 func _process(delta):
+	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), SFX_vol)
+	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), music_vol)
+	
 	if quit == true:
 		save()
 		get_tree().quit()
@@ -94,7 +97,7 @@ func save():
 		"music": music_vol,
 		"mouse": show_mouse
 	}
-		
+	
 	var dir = Directory.new()
 	if !dir.dir_exists(Global.SAVE_DIR):
 		dir.make_dir_recursive(Global.SAVE_DIR)
