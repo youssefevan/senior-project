@@ -7,7 +7,7 @@ var enabled
 
 func _ready():
 	play_music()
-	$Menu/StartBtn.grab_focus()
+	$Menu/StartBtn.call_deferred("grab_focus")
 	Global.previous_scene = "main"
 	Global.boss_start = false
 	

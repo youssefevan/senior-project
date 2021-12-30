@@ -3,7 +3,8 @@ extends Control
 onready var sfx = get_node("/root/Audio")
 
 func _ready():
-	$VBoxContainer/SFXslider.call_deferred("grab_focus")
+	if visible:
+		$VBoxContainer/SFXslider.call_deferred("grab_focus")
 
 func _process(delta):
 	$VBoxContainer/SFXslider.value = Global.SFX_vol
