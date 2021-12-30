@@ -7,10 +7,15 @@ func _ready():
 	visible = false
 
 func _process(delta):
+	if !Global.show_mouse:
+		$VBoxContainer/NextBtn.set_mouse_filter(2)
+		$VBoxContainer/RestartBtn.set_mouse_filter(2)
+		$VBoxContainer/MenuBtn.set_mouse_filter(2)
+	
+	if Global.level == 5:
+		$VBoxContainer/NextBtn.visible = false
+	
 	if visible:
-		if Global.level == 5:
-			$VBoxContainer/NextBtn.visible = false
-		
 		if !enabled:
 			if Global.level != 5:
 				$VBoxContainer/NextBtn.call_deferred("grab_focus")

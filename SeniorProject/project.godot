@@ -10,7 +10,6 @@ config_version=4
 
 [application]
 
-config/name="SeniorProject"
 run/main_scene="res://levels/MainMenu.tscn"
 config/use_custom_user_dir=true
 boot_splash/bg_color=Color( 0, 0, 0, 1 )

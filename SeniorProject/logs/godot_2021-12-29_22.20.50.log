@@ -1,0 +1,56 @@
+Godot Engine v3.4.stable.official.206ba70f4 - https://godotengine.org
+OpenGL ES 3.0 Renderer: NVIDIA GeForce GTX 1050 Ti/PCIe/SSE2
+OpenGL ES Batching: ON
+ 
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'button_up': 'Control(pause_gui.gd)::_on_QuitBtn_button_up': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'button_up': 'Control(pause_gui.gd)::_on_QuitBtn_button_up': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+ERROR: Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'body_entered': 'KinematicBody2D(player_controller.gd)::_on_Hurtbox_body_entered': Method not found..

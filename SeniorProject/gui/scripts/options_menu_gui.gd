@@ -7,6 +7,14 @@ func _ready():
 		$VBoxContainer/SFXslider.call_deferred("grab_focus")
 
 func _process(delta):
+	if !Global.show_mouse:
+		$BackBtn.set_mouse_filter(2)
+		$VBoxContainer/SFXslider.set_mouse_filter(2)
+		$VBoxContainer/MusicSlider.set_mouse_filter(2)
+		$VBoxContainer/BloomToggle.set_mouse_filter(2)
+		$VBoxContainer/FullscreenToggle.set_mouse_filter(2)
+		$VBoxContainer/CursorToggle.set_mouse_filter(2)
+	
 	$VBoxContainer/SFXslider.value = Global.SFX_vol
 	$VBoxContainer/MusicSlider.value = Global.music_vol
 	$VBoxContainer/BloomToggle.pressed = Global.bloom

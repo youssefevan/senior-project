@@ -9,6 +9,11 @@ func _ready():
 	pause_state = false
 
 func _process(delta):
+	if !Global.show_mouse:
+		$VBoxContainer/ContBtn.set_mouse_filter(2)
+		$VBoxContainer/RestartBtn.set_mouse_filter(2)
+		$VBoxContainer/MenuBtn.set_mouse_filter(2)
+	
 	if visible:
 		if !enabled:
 			$VBoxContainer/ContBtn.call_deferred("grab_focus")

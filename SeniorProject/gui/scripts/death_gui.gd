@@ -8,6 +8,10 @@ func _ready():
 	visible = false
 
 func _process(delta):
+	if !Global.show_mouse:
+		$VBoxContainer/MenuBtn.set_mouse_filter(2)
+		$VBoxContainer/RetryBtn.set_mouse_filter(2)
+	
 	if visible:
 		if !enabled:
 			$VBoxContainer/RetryBtn.call_deferred("grab_focus")

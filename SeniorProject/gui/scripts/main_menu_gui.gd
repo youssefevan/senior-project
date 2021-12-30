@@ -1,12 +1,10 @@
 extends Control
 
 onready var sfx = get_node("/root/Audio")
-onready var music = get_node("/root/Music")
 
 var enabled
 
 func _ready():
-	play_music()
 	$Menu/StartBtn.call_deferred("grab_focus")
 	Global.previous_scene = "main"
 	Global.boss_start = false
@@ -32,7 +30,8 @@ func _on_OptBtn_button_up():
 func _on_OptBtn_button_down():
 	sfx.select.play()
 
-func play_music():
-	yield(get_tree().create_timer(.7), "timeout")
-	if !music.theme.playing:
-		music.theme.play()
+func _process(delta):
+	if !Global.show_mouse:
+		$Menu/StartBtn.set_mouse_filter(2)
+		$Menu/OptBtn.set_mouse_filter(2)
+		$Menu/QuitBtn.set_mouse_filter(2)

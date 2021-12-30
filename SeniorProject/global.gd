@@ -4,6 +4,8 @@ const SAVE_DIR = "user://saves/"
 var save_path = SAVE_DIR + "save.dat"
 var quit = false
 
+onready var music = get_node("/root/Music")
+
 var player = null
 var player_dead = false
 var boss = null
@@ -37,6 +39,10 @@ var file = File.new()
 var data = {}
 
 func _ready():
+	yield(get_tree().create_timer(.75), "timeout")
+	if !music.theme.playing:
+		music.theme.play()
+	
 	if file.file_exists(save_path):
 		var error = file.open(save_path, File.READ)
 		if error == OK:

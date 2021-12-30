@@ -9,6 +9,15 @@ func _ready():
 # just a mess
 
 func _process(delta):
+	if !Global.show_mouse:
+		$BackBtn.set_mouse_filter(2)
+		$VBoxContainer/TutBtn.set_mouse_filter(2)
+		$VBoxContainer/Lv1Btn.set_mouse_filter(2)
+		$VBoxContainer/Lv2Btn.set_mouse_filter(2)
+		$VBoxContainer/Lv3Btn.set_mouse_filter(2)
+		$VBoxContainer/Lv4Btn.set_mouse_filter(2)
+		$VBoxContainer/Lv5Btn.set_mouse_filter(2)
+	
 	if Global.level1_unlock == true:
 		$VBoxContainer/Lv1Btn.disabled = false
 	else:
