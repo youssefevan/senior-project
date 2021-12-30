@@ -16,7 +16,8 @@ func _ready():
 	get_node("Sprite").set_material(mat)
 
 func _process(delta):
-	$Sprite.rotation_degrees += rot_speed * delta
+	#$Sprite.rotation_degrees += rot_speed * delta
+	$Animator.play("flap")
 	
 	var collision = move_and_collide(velocity * delta)
 	

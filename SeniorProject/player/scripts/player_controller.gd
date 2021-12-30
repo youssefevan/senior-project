@@ -20,7 +20,6 @@ onready var sfx = get_node("/root/Audio")
 
 onready var animator = $Animator
 onready var sprite = $Sprite
-onready var jump_sfx = $JumpSFX
 
 const MAX_SPEED = 85
 const JUMP_FORCE = 208
@@ -60,7 +59,11 @@ var cr_pos = Vector2()
 
 var dead_pos = Vector2()
 
+var ended
+
 func _ready():
+	ended = false
+	frozen = false
 	hitstun = false
 	Global.player = self
 	$ShaderAnimator.play("default")
@@ -98,7 +101,14 @@ func handle_move_input(delta):
 		else:
 			velocity.x = lerp(velocity.x, 0, fric * delta)
 	else:
-		velocity.x = 50
+		if ended == true:
+			x_input = 0
+			velocity.x = 0
+			velocity.y = 0
+		else:
+			x_input = 0
+			velocity.x = 50
+			$Blaster.can_fire = false
 
 #func update_grounded():
 #	var was_grounded = is_grounded
@@ -148,7 +158,7 @@ func boss_start():
 func ending():
 	frozen = true
 	yield(get_tree().create_timer(1.2), "timeout")
-	frozen = false
+	ended = true
 	Global.ending = false
 	Global.level_end = true
 

@@ -17,7 +17,7 @@ func _input(event):
 			if parent.canCoyoteJump == true:
 				if parent.velocity.y > 0:
 					parent.velocity.y = -parent.JUMP_FORCE
-					parent.jump_sfx.play()
+					sfx.jump.play()
 		
 		# minimum jump height (variable jump heigth)
 		if state == states.jump:

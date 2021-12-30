@@ -13,7 +13,7 @@
 [ext_resource path="res://pickups/Coin.tscn" type="PackedScene" id=11]
 [ext_resource path="res://gui/DeathGUI.tscn" type="PackedScene" id=12]
 [ext_resource path="res://enemies/Crab.tscn" type="PackedScene" id=13]
-[ext_resource path="res://gui/theme_data/ui_theme.tres" type="Theme" id=14]
+[ext_resource path="res://sprites/controls.png" type="Texture" id=14]
 [ext_resource path="res://pickups/Endflag.tscn" type="PackedScene" id=15]
 [ext_resource path="res://gui/LevelEndGUI.tscn" type="PackedScene" id=16]
 [ext_resource path="res://levels/scripts/tutorial.gd" type="Script" id=17]
@@ -44,47 +44,6 @@ visible = false
 
 [node name="PauseMenuGUI" parent="UI" instance=ExtResource( 9 )]
 visible = false
-
-[node name="TutorialText" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-theme = ExtResource( 14 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Text1" type="Label" parent="TutorialText"]
-margin_left = 50.0
-margin_top = 48.0
-margin_right = 214.0
-margin_bottom = 58.0
-text = "Move: ARrow Keys"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Text2" type="Label" parent="TutorialText"]
-margin_left = 496.0
-margin_top = 48.0
-margin_right = 640.0
-margin_bottom = 58.0
-text = "Jump: C"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Text3" type="Label" parent="TutorialText"]
-margin_left = 496.0
-margin_top = -96.0
-margin_right = 640.0
-margin_bottom = -86.0
-text = "Shoot: X"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CameraRooms" type="Node2D" parent="."]
 __meta__ = {
@@ -168,10 +127,16 @@ position = Vector2( 844, 44 )
 [node name="Spikes7" parent="Spike" instance=ExtResource( 7 )]
 position = Vector2( 852, 44 )
 
+[node name="Controls" type="Sprite" parent="."]
+position = Vector2( 128, 48 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Player+Cam" type="Node2D" parent="."]
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="Player" parent="Player+Cam" instance=ExtResource( 3 )]

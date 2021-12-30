@@ -26,14 +26,12 @@ func shoot():
 	projectile.position = $Muzzle.global_position
 	projectile.rotation = global_rotation
 	get_tree().get_root().call_deferred("add_child", projectile)
-	
 	spawn_flare()
 
 func spawn_flare():
 	var flare = flare_scene.instance()
-	flare.position = $Muzzle.global_position
-	get_tree().get_root().call_deferred("add_child", flare)
-
+	#flare.position = $Muzzle.global_position
+	call_deferred("add_child", flare)
 
 func _on_Player_flipped():
 	rotation_degrees = 180

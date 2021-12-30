@@ -71,7 +71,7 @@ func _ready():
 		SFX_vol = 1
 		music_vol = .6
 		bloom = true
-		fullscreen = true
+		fullscreen = false
 		show_mouse = false
 	
 
