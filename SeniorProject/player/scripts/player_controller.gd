@@ -105,10 +105,10 @@ func handle_move_input(delta):
 			x_input = 0
 			velocity.x = 0
 			velocity.y = 0
+			$Blaster.can_fire = false
 		else:
 			x_input = 0
 			velocity.x = 50
-			$Blaster.can_fire = false
 
 #func update_grounded():
 #	var was_grounded = is_grounded
