@@ -85,10 +85,10 @@ func _process(delta):
 	
 	if show_mouse == true:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		Input.set_mouse_mode(!Input.MOUSE_MODE_CAPTURED)
+		#Input.set_mouse_mode(!Input.MOUSE_MODE_CAPTURED)
 	elif show_mouse == false:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func save():
 	data = {

@@ -10,13 +10,14 @@ config_version=4
 
 [application]
 
-config/name="SeniorProject"
+config/name="Cave Crawler"
 run/main_scene="res://levels/MainMenu.tscn"
 config/use_custom_user_dir=true
 boot_splash/image="res://media/splash.png"
+boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
-config/windows_native_icon="res://media/icon64.ico"
+config/windows_native_icon="res://media/icon.ico"
 
 [autoload]
 
