@@ -39,9 +39,7 @@ var file = File.new()
 var data = {}
 
 func _ready():
-	yield(get_tree().create_timer(.75), "timeout")
-	if !music.theme.playing:
-		music.theme.play()
+	init_steam()
 	
 	if file.file_exists(save_path):
 		var error = file.open(save_path, File.READ)
@@ -74,6 +72,20 @@ func _ready():
 		fullscreen = false
 		show_mouse = false
 	
+	yield(get_tree().create_timer(.75), "timeout")
+	if !music.theme.playing:
+		music.theme.play()
+	
+
+func init_steam():
+	var INIT: Dictionary = Steam.steamInit()
+	print("Did Steam initialize?: "+str(INIT))
+	
+	Steam.connect("current_stats_received", self, "_steam_Stats_Ready")
+	
+	if INIT['status'] != 1:
+		print("Failed to initialize Steam. "+str(INIT['verbal'])+" Shutting down...")
+		get_tree().quit()
 
 func _process(delta):
 	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), SFX_vol)
@@ -89,6 +101,31 @@ func _process(delta):
 	elif show_mouse == false:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	if level1_unlock:
+		Steam.setAchievement("level1")
+		Steam.storeStats()
+	
+	if level2_unlock:
+		Steam.setAchievement("level2")
+		Steam.storeStats()
+	
+	if level3_unlock:
+		Steam.setAchievement("level3")
+		Steam.storeStats()
+	
+	if level4_unlock:
+		Steam.setAchievement("level4")
+		Steam.storeStats()
+	
+	if level5_unlock:
+		Steam.setAchievement("level5")
+		Steam.storeStats()
+	
+	if boss_beat:
+		#print(boss_beat)
+		Steam.setAchievement("beat_boss")
+		Steam.storeStats()
 
 func save():
 	data = {
