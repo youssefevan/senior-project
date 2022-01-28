@@ -34,6 +34,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BonusBtn" type="Button" parent="."]
+margin_left = 202.0
+margin_top = 123.0
+margin_right = 244.0
+margin_bottom = 135.0
+text = "bonus"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 82.0
 margin_top = 26.0
@@ -80,6 +90,8 @@ text = "Level 5"
 
 [connection signal="button_down" from="BackBtn" to="." method="_on_BackBtn_button_down"]
 [connection signal="button_up" from="BackBtn" to="." method="_on_BackBtn_button_up"]
+[connection signal="button_down" from="BonusBtn" to="." method="_on_BonusBtn_button_down"]
+[connection signal="button_up" from="BonusBtn" to="." method="_on_BonusBtn_button_up"]
 [connection signal="button_down" from="VBoxContainer/TutBtn" to="." method="_on_TutBtn_button_down"]
 [connection signal="button_up" from="VBoxContainer/TutBtn" to="." method="_on_TutBtn_button_up"]
 [connection signal="button_down" from="VBoxContainer/Lv1Btn" to="." method="_on_Lv1Btn_button_down"]

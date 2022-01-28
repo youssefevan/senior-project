@@ -12,12 +12,12 @@ func _process(delta):
 		$VBoxContainer/RestartBtn.set_mouse_filter(2)
 		$VBoxContainer/MenuBtn.set_mouse_filter(2)
 	
-	if Global.level == 5:
+	if Global.level >= 5:
 		$VBoxContainer/NextBtn.visible = false
 	
 	if visible:
 		if !enabled:
-			if Global.level != 5:
+			if Global.level < 5:
 				$VBoxContainer/NextBtn.call_deferred("grab_focus")
 			else:
 				$VBoxContainer/MenuBtn.grab_focus()
@@ -26,6 +26,7 @@ func _process(delta):
 		enabled = false
 	
 	if Global.level_end == true:
+		Global.level6_unlock = true
 		Global.save()
 		self.visible = true
 	elif Global.level_end == false:

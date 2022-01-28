@@ -29,7 +29,7 @@ const MAX_FALL_SPEED = 250
 
 const GROUND_ACCEL = 850
 const AIR_ACCEL = 555
-const GROUND_FRIC = 10
+const GROUND_FRIC = 12
 const AIR_FRIC = 1.4
 const MIN_JUMP_HEIGHT = 90
 

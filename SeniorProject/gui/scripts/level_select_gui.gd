@@ -11,6 +11,7 @@ func _ready():
 func _process(delta):
 	if !Global.show_mouse:
 		$BackBtn.set_mouse_filter(2)
+		$BonusBtn.set_mouse_filter(2)
 		$VBoxContainer/TutBtn.set_mouse_filter(2)
 		$VBoxContainer/Lv1Btn.set_mouse_filter(2)
 		$VBoxContainer/Lv2Btn.set_mouse_filter(2)
@@ -42,6 +43,11 @@ func _process(delta):
 		$VBoxContainer/Lv5Btn.disabled = false
 	else:
 		$VBoxContainer/Lv5Btn.disabled = true
+	
+	if Global.level6_unlock == true:
+		$BonusBtn.disabled = false
+	else:
+		$BonusBtn.disabled = true
 
 func _on_TutBtn_button_up():
 	get_tree().change_scene("res://levels/Tutorial.tscn")
@@ -85,3 +91,9 @@ func _on_Lv5Btn_button_down():
 
 func _on_BackBtn_button_down():
 	sfx.select.play()
+
+func _on_BonusBtn_button_down():
+	sfx.select.play()
+
+func _on_BonusBtn_button_up():
+	get_tree().change_scene("res://levels/Level6.tscn")

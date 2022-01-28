@@ -24,6 +24,9 @@ var level2_unlock = false
 var level3_unlock = false
 var level4_unlock = false
 var level5_unlock = false
+var level6_unlock = false
+
+var level6_beat = false
 
 var show_options = false
 var SFX_vol = 1
@@ -51,6 +54,13 @@ func _ready():
 			level3_unlock = load_data.level3
 			level4_unlock = load_data.level4
 			level5_unlock = load_data.level5
+			#print(load_data)
+			if load_data.size() > 10:
+				level6_unlock = load_data.level6
+				level6_beat = load_data.level6_beat
+			else:
+				level6_unlock = false
+				level6_beat = false
 			
 			bloom = load_data.bloom
 			fullscreen = load_data.fullscreen
@@ -65,6 +75,8 @@ func _ready():
 		level3_unlock = false
 		level4_unlock = false
 		level5_unlock = false
+		level6_unlock = false
+		level6_beat = false
 		
 		SFX_vol = 1
 		music_vol = .6
@@ -83,9 +95,9 @@ func init_steam():
 	
 	Steam.connect("current_stats_received", self, "_steam_Stats_Ready")
 	
-	if INIT['status'] != 1:
-		print("Failed to initialize Steam. "+str(INIT['verbal'])+" Shutting down...")
-		get_tree().quit()
+#	if INIT['status'] != 1:
+#		print("Failed to initialize Steam. "+str(INIT['verbal'])+" Shutting down...")
+#		get_tree().quit()
 
 func _process(delta):
 	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), SFX_vol)
@@ -126,6 +138,10 @@ func _process(delta):
 		#print(boss_beat)
 		Steam.setAchievement("beat_boss")
 		Steam.storeStats()
+	
+	if level6_beat:
+		Steam.setAchievement("level6")
+		Steam.storeStats()
 
 func save():
 	data = {
@@ -134,6 +150,8 @@ func save():
 		"level3": level3_unlock,
 		"level4": level4_unlock,
 		"level5": level5_unlock,
+		"level6": level6_unlock,
+		"level6_beat": level6_beat,
 		"bloom": bloom,
 		"fullscreen": fullscreen,
 		"sfx": SFX_vol,

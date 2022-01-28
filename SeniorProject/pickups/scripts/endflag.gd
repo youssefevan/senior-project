@@ -15,5 +15,9 @@ func _on_Endflag_body_entered(body):
 				Global.level4_unlock = true
 			4:
 				Global.level5_unlock = true
+			5:
+				Global.level6_unlock = true
+			6:
+				Global.level6_beat = true
 		Global.level_end = true
 		get_tree().paused = true
