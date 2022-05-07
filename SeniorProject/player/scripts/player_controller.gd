@@ -20,6 +20,7 @@ onready var sfx = get_node("/root/Audio")
 
 onready var animator = $Animator
 onready var sprite = $Sprite
+onready var blaster = $Blaster
 
 const MAX_SPEED = 85
 const JUMP_FORCE = 208
@@ -87,19 +88,30 @@ func apply_movement():
 		velocity = Vector2.ZERO
 	else:
 		velocity = velocity
+	
+	if abs(velocity.x) <= 0.05:
+		velocity.x = 0
+	else:
+		velocity.x = velocity.x
+	
+	print(velocity.x)
+	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	#(Global.score)
 
 func handle_move_input(delta):
+	pass
+	#print(x_input)
 	if !frozen:
 		x_input = Input.get_action_strength("right") - Input.get_action_strength("left")
-		
+
 		# smooth in and out
 		if x_input != 0:
 			velocity.x += x_input * accel * delta
 			velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
 		else:
 			velocity.x = lerp(velocity.x, 0, fric * delta)
+		#print(velocity.x)
 	else:
 		if ended == true:
 			x_input = 0

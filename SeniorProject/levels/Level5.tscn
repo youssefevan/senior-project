@@ -170,7 +170,7 @@ position = Vector2( 640, 152 )
 scale = Vector2( 24, 1 )
 
 [node name="BossRoomTrigger" parent="." instance=ExtResource( 16 )]
-position = Vector2( 776, 680 )
+position = Vector2( 772, 680 )
 
 [node name="BossDoor" parent="." instance=ExtResource( 22 )]
 position = Vector2( 776, 648 )
