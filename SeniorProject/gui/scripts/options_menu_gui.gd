@@ -12,12 +12,14 @@ func _process(delta):
 		$VBoxContainer/SFXslider.set_mouse_filter(2)
 		$VBoxContainer/MusicSlider.set_mouse_filter(2)
 		$VBoxContainer/BloomToggle.set_mouse_filter(2)
+		$VBoxContainer/ParticlesToggle.set_mouse_filter(2)
 		$VBoxContainer/FullscreenToggle.set_mouse_filter(2)
 		$VBoxContainer/CursorToggle.set_mouse_filter(2)
 	
 	$VBoxContainer/SFXslider.value = Global.SFX_vol
 	$VBoxContainer/MusicSlider.value = Global.music_vol
 	$VBoxContainer/BloomToggle.pressed = Global.bloom
+	$VBoxContainer/ParticlesToggle.pressed = Global.enable_particles
 	$VBoxContainer/FullscreenToggle.pressed = Global.fullscreen
 	$VBoxContainer/CursorToggle.pressed = Global.show_mouse
 	
@@ -75,3 +77,12 @@ func _on_FullscreenToggle_button_down():
 
 func _on_CursorToggle_button_down():
 	sfx.select.play()
+
+func _on_ParticlesToggle_button_down():
+	sfx.select.play()
+
+func _on_ParticlesToggle_toggled(button_pressed):
+	if button_pressed == true:
+		Global.enable_particles = true
+	elif button_pressed == false:
+		Global.enable_particles = false

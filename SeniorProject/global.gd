@@ -35,6 +35,8 @@ var bloom = true
 var fullscreen = true
 var show_mouse = true
 
+var enable_particles = true
+
 var previous_scene = ""
 
 var file = File.new()
@@ -55,11 +57,14 @@ func _ready():
 			level4_unlock = load_data.level4
 			level5_unlock = load_data.level5
 			#print(load_data)
-			if load_data.size() > 10:
+			if load_data.has("level6_unlock"):
 				level6_unlock = load_data.level6
-				level6_beat = load_data.level6_beat
 			else:
 				level6_unlock = false
+			
+			if load_data.has("level6_beat"):
+				level6_beat = load_data.level6_beat
+			else:
 				level6_beat = false
 			
 			bloom = load_data.bloom
@@ -67,6 +72,13 @@ func _ready():
 			SFX_vol = load_data.sfx
 			music_vol = load_data.music
 			show_mouse = load_data.mouse
+			
+			print(load_data)
+			
+			if load_data.has("enabled_particles"):
+				enable_particles = load_data.enable_particles
+			else:
+				enable_particles = true
 			
 			file.close()
 	else:
@@ -83,6 +95,7 @@ func _ready():
 		bloom = true
 		fullscreen = false
 		show_mouse = false
+		enable_particles = true
 	
 	yield(get_tree().create_timer(.75), "timeout")
 	if !music.theme.playing:
@@ -156,7 +169,8 @@ func save():
 		"fullscreen": fullscreen,
 		"sfx": SFX_vol,
 		"music": music_vol,
-		"mouse": show_mouse
+		"mouse": show_mouse,
+		"enable_particles": enable_particles
 	}
 	
 	var dir = Directory.new()

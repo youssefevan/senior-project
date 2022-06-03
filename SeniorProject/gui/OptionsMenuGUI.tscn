@@ -37,9 +37,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 72.0
-margin_top = 33.0
+margin_top = 23.0
 margin_right = 184.0
-margin_bottom = 111.0
+margin_bottom = 129.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -80,20 +80,28 @@ text = "Bloom"
 flat = true
 clip_text = true
 
-[node name="FullscreenToggle" type="CheckButton" parent="VBoxContainer"]
+[node name="ParticlesToggle" type="CheckButton" parent="VBoxContainer"]
 margin_top = 46.0
 margin_right = 112.0
 margin_bottom = 60.0
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Particles"
+flat = true
+
+[node name="FullscreenToggle" type="CheckButton" parent="VBoxContainer"]
+margin_top = 64.0
+margin_right = 112.0
+margin_bottom = 78.0
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "Fullscreen"
 flat = true
 
 [node name="CursorToggle" type="CheckButton" parent="VBoxContainer"]
-margin_top = 64.0
+margin_top = 82.0
 margin_right = 112.0
-margin_bottom = 78.0
+margin_bottom = 96.0
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
-text = "Show Cursor"
+text = "Enable Mouse"
 flat = true
 
 [connection signal="button_down" from="BackBtn" to="." method="_on_BackBtn_button_down"]
@@ -102,6 +110,8 @@ flat = true
 [connection signal="value_changed" from="VBoxContainer/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="button_down" from="VBoxContainer/BloomToggle" to="." method="_on_BloomToggle_button_down"]
 [connection signal="toggled" from="VBoxContainer/BloomToggle" to="." method="_on_BloomToggle_toggled"]
+[connection signal="button_down" from="VBoxContainer/ParticlesToggle" to="." method="_on_ParticlesToggle_button_down"]
+[connection signal="toggled" from="VBoxContainer/ParticlesToggle" to="." method="_on_ParticlesToggle_toggled"]
 [connection signal="button_down" from="VBoxContainer/FullscreenToggle" to="." method="_on_CheckBox_button_down"]
 [connection signal="toggled" from="VBoxContainer/FullscreenToggle" to="." method="_on_FullscreenToggle_toggled"]
 [connection signal="button_down" from="VBoxContainer/CursorToggle" to="." method="_on_CursorToggle_button_down"]

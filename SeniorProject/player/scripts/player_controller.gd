@@ -1,3 +1,4 @@
+class_name Player
 extends KinematicBody2D
 
 signal grounded(is_grounded)
@@ -100,7 +101,6 @@ func apply_movement():
 	#(Global.score)
 
 func handle_move_input(delta):
-	pass
 	#print(x_input)
 	if !frozen:
 		x_input = Input.get_action_strength("right") - Input.get_action_strength("left")
