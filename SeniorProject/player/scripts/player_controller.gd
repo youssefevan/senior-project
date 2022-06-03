@@ -95,7 +95,7 @@ func apply_movement():
 	else:
 		velocity.x = velocity.x
 	
-	print(velocity.x)
+	#print(velocity.x)
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	#(Global.score)

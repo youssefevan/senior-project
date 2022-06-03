@@ -75,7 +75,7 @@ func _ready():
 			
 			print(load_data)
 			
-			if load_data.has("enabled_particles"):
+			if load_data.has("enable_particles"):
 				enable_particles = load_data.enable_particles
 			else:
 				enable_particles = true

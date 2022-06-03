@@ -101,7 +101,7 @@ margin_top = 82.0
 margin_right = 112.0
 margin_bottom = 96.0
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
-text = "Enable Mouse"
+text = "Show Cursor"
 flat = true
 
 [connection signal="button_down" from="BackBtn" to="." method="_on_BackBtn_button_down"]
