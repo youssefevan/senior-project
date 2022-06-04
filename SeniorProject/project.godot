@@ -35,6 +35,7 @@ config/windows_native_icon="res://media/icon.ico"
 Global="*res://global.gd"
 Audio="*res://sounds/Audio.tscn"
 Music="*res://sounds/Music.tscn"
+ParticlesCache="*res://effects/ParticlesCache.tscn"
 
 [debug]
 
